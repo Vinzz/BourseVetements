@@ -1,0 +1,8 @@
+appli web permettant de stocker des listes d'articles déposées par les particuliers vendeurs, émission d'étiquettes pourvues de code barre pour faciliter:
+
+* la vente
+* la reconstitution des invendus
+
+Specs sous Pencil
+
+Devs en ASP.NET MVC4
