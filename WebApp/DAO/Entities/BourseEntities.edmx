@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="SellerSet" EntityType="Model1.Store.SellerSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ArticleSet" EntityType="Model1.Store.ArticleSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListSet" EntityType="Model1.Store.ListSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BrandsSet" EntityType="Model1.Store.BrandsSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ArticleList" Association="Model1.Store.ArticleList">
+      <End Role="Article" EntitySet="ArticleSet" />
+      <End Role="List" EntitySet="ListSet" />
+    </AssociationSet>
+    <AssociationSet Name="ListSeller" Association="Model1.Store.ListSeller">
+      <End Role="List" EntitySet="ListSet" />
+      <End Role="Seller" EntitySet="SellerSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="SellerSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="longtext" Nullable="false" />
+    <Property Name="City" Type="longtext" Nullable="false" />
+    <Property Name="Phone" Type="longtext" Nullable="false" />
+    <Property Name="Mail" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArticleSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="longtext" Nullable="false" />
+    <Property Name="Details" Type="longtext" Nullable="false" />
+    <Property Name="Brand" Type="longtext" Nullable="false" />
+    <Property Name="Size" Type="longtext" Nullable="false" />
+    <Property Name="Price" Type="double" Nullable="false" />
+    <Property Name="isToy" Type="bool" Nullable="false" />
+    <Property Name="List_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Creator" Type="longtext" Nullable="false" />
+    <Property Name="Remarks" Type="longtext" Nullable="false" />
+    <Property Name="Seller_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BrandsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="longtext" Nullable="false" />
+  </EntityType>
+  <Association Name="ArticleList">
+    <End Role="Article" Type="Model1.Store.ArticleSet" Multiplicity="*" />
+    <End Role="List" Type="Model1.Store.ListSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="List">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="List_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ListSeller">
+    <End Role="List" Type="Model1.Store.ListSet" Multiplicity="*" />
+    <End Role="Seller" Type="Model1.Store.SellerSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Seller">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="List">
+        <PropertyRef Name="Seller_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="BourseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SellerSet" EntityType="Model1.Seller" />
+          <EntitySet Name="ArticleSet" EntityType="Model1.Article" />
+          <EntitySet Name="Sell_ListSet" EntityType="Model1.Sell_List" />
+          <AssociationSet Name="ArticleList" Association="Model1.ArticleList">
+            <End Role="Article" EntitySet="ArticleSet" />
+            <End Role="List" EntitySet="Sell_ListSet" />
+          </AssociationSet>
+          <AssociationSet Name="ListSeller" Association="Model1.ListSeller">
+            <End Role="List" EntitySet="Sell_ListSet" />
+            <End Role="Seller" EntitySet="SellerSet" />
+          </AssociationSet>
+          <EntitySet Name="BrandsSet" EntityType="Model1.Brands" />
+        </EntityContainer>
+        <EntityType Name="Seller">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" Unicode="true" />
+          <Property Type="String" Name="City" Nullable="false" Unicode="true" />
+          <Property Type="String" Name="Phone" Nullable="false" Unicode="true" />
+          <Property Type="String" Name="Mail" Nullable="false" Unicode="true" />
+          <NavigationProperty Name="List" Relationship="Model1.ListSeller" FromRole="Seller" ToRole="List" />
+        </EntityType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" Unicode="true" />
+          <Property Type="String" Name="Details" Nullable="false" Unicode="true" />
+          <Property Type="String" Name="Brand" Nullable="false" Unicode="true" />
+          <Property Type="String" Name="Size" Nullable="false" Unicode="true" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="Boolean" Name="isToy" Nullable="false" />
+          <NavigationProperty Name="List" Relationship="Model1.ArticleList" FromRole="Article" ToRole="List" />
+        </EntityType>
+        <EntityType Name="Sell_List">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Creator" Nullable="false" />
+          <Property Type="String" Name="Remarks" Nullable="false" />
+          <NavigationProperty Name="Article" Relationship="Model1.ArticleList" FromRole="List" ToRole="Article" />
+          <NavigationProperty Name="Seller" Relationship="Model1.ListSeller" FromRole="List" ToRole="Seller" />
+        </EntityType>
+        <Association Name="ArticleList">
+          <End Type="Model1.Article" Role="Article" Multiplicity="*" />
+          <End Type="Model1.Sell_List" Role="List" Multiplicity="1" />
+        </Association>
+        <Association Name="ListSeller">
+          <End Type="Model1.Sell_List" Role="List" Multiplicity="*" />
+          <End Type="Model1.Seller" Role="Seller" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Brands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="BourseEntities">
+    <EntitySetMapping Name="SellerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Seller)">
+        <MappingFragment StoreEntitySet="SellerSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArticleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Article)">
+        <MappingFragment StoreEntitySet="ArticleSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="isToy" ColumnName="isToy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sell_ListSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Sell_List)">
+        <MappingFragment StoreEntitySet="ListSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BrandsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Brands)">
+        <MappingFragment StoreEntitySet="BrandsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ArticleList" TypeName="Model1.ArticleList" StoreEntitySet="ArticleSet">
+      <EndProperty Name="List">
+        <ScalarProperty Name="Id" ColumnName="List_Id" />
+      </EndProperty>
+      <EndProperty Name="Article">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ListSeller" TypeName="Model1.ListSeller" StoreEntitySet="ListSet">
+      <EndProperty Name="Seller">
+        <ScalarProperty Name="Id" ColumnName="Seller_Id" />
+      </EndProperty>
+      <EndProperty Name="List">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToMySQL.tt" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="dbo" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Model1" >
+        <EntityTypeShape EntityType="Model1.Seller" Width="1.5" PointX="0.5" PointY="0.75" Height="1.7566536458333331" />
+        <EntityTypeShape EntityType="Model1.Article" Width="1.5" PointX="2.625" PointY="3" Height="2.2496956380208339" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Sell_List" Width="1.5" PointX="5.375" PointY="1.125" Height="1.427958984375" />
+        <AssociationConnector Association="Model1.ArticleList">
+          <ConnectorPoint PointX="4.125" PointY="4.1248478190104167" />
+          <ConnectorPoint PointX="6.125" PointY="4.1248478190104167" />
+          <ConnectorPoint PointX="6.125" PointY="2.717306315104167" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model1.ListSeller">
+          <ConnectorPoint PointX="5.375" PointY="1.8980004882812502" />
+          <ConnectorPoint PointX="2" PointY="1.8980004882812502" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model1.Brands" Width="1.5" PointX="8.125" PointY="1.25" Height="1.2636116536458335" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

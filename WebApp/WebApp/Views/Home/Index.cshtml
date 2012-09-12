@@ -10,7 +10,7 @@
 @Html.DropDownListFor(
     x => x.SelectedItemId,
     new SelectList(
-        Model.brands.Select(x => new { Value = x, Text = x }),
+        Model.brands.Select(x => new { Value = x.Id, Text = x.Name }),
         "Value",
         "Text")
 
