@@ -11,12 +11,5 @@ namespace WebApp.Models
     {
         public string SelectedItemId { get; set; }
         public IEnumerable<Brands> brands { get; set; }
-
-        public NewListViewModel()
-        {
-            IBourseDAO dao = new BourseDAO();
-
-            brands = dao.GetBrands();
-        }
     }
 }
