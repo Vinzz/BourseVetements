@@ -10,10 +10,19 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(IBourseDAO dao)
+        public IBourseDAO dao { get; set; }
+
+        public HomeController(IBourseDAO dao)
         {
-            ViewBag.Message = "Page principale";
+            this.dao = dao;
+        }
+        public ActionResult Index()
+        {
             NewListViewModel model = new NewListViewModel();
+
+            model.brands = dao.GetBrands();
+
+            ViewBag.Message = string.Format("number of brands in DB: {0}", model.brands.Count());
 
             return View(model);
         }
