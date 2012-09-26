@@ -1,0 +1,82 @@
+﻿/*!
+ * jquery.ui.potato.menu
+ * 
+ * Copyright (c) 2009-2010 makoto_kw, http://www.makotokw.com
+ * Licensed under the MIT license.
+ * 
+ * @author makoto_kw
+ * @version 1.1
+ */
+ul.potato-menu {
+	margin:0;
+	padding:0;
+	width:auto;
+	list-style:none;
+}
+.potato-menu:after {
+	content: " ";
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0.1px;
+	font-size: 0.1em;
+	line-height: 0;
+}
+ul.potato-menu li.potato-menu-item {
+	padding:0;
+	position:relative;
+	list-style:none;
+	list-style-position:outside;
+	display:inline;
+	float:left;
+}
+ul.potato-menu li.potato-menu-item a {
+	display:block;
+	text-decoration:none;
+	outline:0;
+}
+ul.potato-menu ul.potato-menu-group {
+	margin:0;
+	padding:0;
+	-webkit-padding-start:0;
+	-webkit-padding-end:0;
+	position:absolute;
+	display:none;
+	z-index:1000;
+}
+
+ul#menu1 {}
+ul#menu2 { clear:both; width:160px; margin-top:10px; }
+li.potato-menu-item {
+    font-size:12px;
+    background-color:#F8F8EC;
+    margin-left: 3px;
+    margin-top: 3px;
+    border: 1px solid black;
+    width: 150px;
+}
+
+ul.potato-menu-group {
+    z-index:1000;
+}
+li.potato-menu-item a {
+    padding:5px 20px 5px 12px;
+    color: black;
+    font-size: larger;
+}
+
+li.potato-menu-item a:hover {
+    color: white;
+}
+
+li.potato-menu-hover {
+    background-color: #F79646;
+}
+li.potato-menu-has-vertical > a {
+    background: transparent url("Pictures/triangleDown.gif") right no-repeat;
+}
+li.potato-menu-has-holizontal > a {
+    background: transparent url("Pictures/triangleRight.gif") right no-repeat;
+}
+li.potato-menu-item ul {
+}

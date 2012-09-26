@@ -16,7 +16,7 @@ namespace WebApp
         private static IUnityContainer BuildUnityContainer()
         {
             var container = new UnityContainer();
-            container.RegisterType<IBourseDAO, BourseDAO>();            
+            container.RegisterType<IBourseDAO, DummyDAO>();            
             return container;
         }
     }

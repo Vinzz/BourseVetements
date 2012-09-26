@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BourseDAO.cs" />
+    <Compile Include="DummyDAO.cs" />
     <Compile Include="Entities\BourseEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

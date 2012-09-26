@@ -18,6 +18,8 @@ namespace WebApp.Controllers
         }
         public ActionResult Index()
         {
+            ViewBag.Location = Properties.Resources.menuListLists;
+
             NewListViewModel model = new NewListViewModel();
 
             model.brands = dao.GetBrands();
