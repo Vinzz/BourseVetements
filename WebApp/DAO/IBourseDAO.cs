@@ -8,10 +8,10 @@ namespace DAO
 {
     public interface IBourseDAO
     {
+        IEnumerable<Articles> GetArticles();
+        IEnumerable<Details> GetDetails();
         IEnumerable<Brands> GetBrands();
-
-        void SetBrands(IEnumerable<Brands> brands);
-
-        void InsertNewList(Sell_List newList);
+        IEnumerable<Sizes> GetSizes();
+        IEnumerable<Prices> GetPrices();
     }
 }

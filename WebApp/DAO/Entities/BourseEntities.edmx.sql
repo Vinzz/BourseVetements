@@ -5,14 +5,11 @@
 -- -----------------------------------------------------------
 -- Entity Designer DDL Script for MySQL Server 4.1 and higher
 -- -----------------------------------------------------------
--- Date Created: 09/12/2012 20:56:59
--- Generated from EDMX file: C:\Documents and Settings\Fanny\Mes documents\GitHub\BourseVetements\WebApp\DAO\BourseEntities.edmx
+-- Date Created: 11/14/2012 22:16:46
+-- Generated from EDMX file: C:\Documents and Settings\Fanny\Mes documents\GitHub\BourseVetements\WebApp\DAO\Entities\BourseEntities.edmx
 -- Target version: 2.0.0.0
 -- --------------------------------------------------
 
-DROP DATABASE IF EXISTS `bourse`;
-CREATE DATABASE `bourse`;
-USE `bourse`;
 
 -- --------------------------------------------------
 -- Dropping existing FOREIGN KEY constraints
@@ -20,7 +17,7 @@ USE `bourse`;
 -- --------------------------------------------------
 
 --    ALTER TABLE `ArticleSet` DROP CONSTRAINT `FK_ArticleList`;
---    ALTER TABLE `ListSet` DROP CONSTRAINT `FK_ListSeller`;
+--    ALTER TABLE `Sell_ListSet` DROP CONSTRAINT `FK_ListSeller`;
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -28,8 +25,12 @@ USE `bourse`;
 SET foreign_key_checks = 0;
     DROP TABLE IF EXISTS `SellerSet`;
     DROP TABLE IF EXISTS `ArticleSet`;
-    DROP TABLE IF EXISTS `ListSet`;
+    DROP TABLE IF EXISTS `Sell_ListSet`;
     DROP TABLE IF EXISTS `BrandsSet`;
+    DROP TABLE IF EXISTS `ArticlesSet`;
+    DROP TABLE IF EXISTS `DetailsSet`;
+    DROP TABLE IF EXISTS `SizesSet`;
+    DROP TABLE IF EXISTS `PricesSet`;
 SET foreign_key_checks = 1;
 
 -- --------------------------------------------------
@@ -59,18 +60,48 @@ CREATE TABLE `ArticleSet` (
     `List_Id` int  NOT NULL
 );
 
--- Creating table 'ListSet'
+-- Creating table 'Sell_ListSet'
 
-CREATE TABLE `ListSet` (
+CREATE TABLE `Sell_ListSet` (
     `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `Creator` longtext  NOT NULL,
     `Remarks` longtext  NOT NULL,
+    `NumberClothes` longtext  NOT NULL,
+    `NumberToys` longtext  NOT NULL,
     `Seller_Id` int  NOT NULL
 );
 
 -- Creating table 'BrandsSet'
 
 CREATE TABLE `BrandsSet` (
+    `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    `Name` longtext  NOT NULL
+);
+
+-- Creating table 'ArticlesSet'
+
+CREATE TABLE `ArticlesSet` (
+    `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    `Name` longtext  NOT NULL
+);
+
+-- Creating table 'DetailsSet'
+
+CREATE TABLE `DetailsSet` (
+    `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    `Name` longtext  NOT NULL
+);
+
+-- Creating table 'SizesSet'
+
+CREATE TABLE `SizesSet` (
+    `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    `Name` longtext  NOT NULL
+);
+
+-- Creating table 'PricesSet'
+
+CREATE TABLE `PricesSet` (
     `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `Name` longtext  NOT NULL
 );
@@ -92,7 +123,7 @@ CREATE TABLE `BrandsSet` (
 ALTER TABLE `ArticleSet`
 ADD CONSTRAINT `FK_ArticleList`
     FOREIGN KEY (`List_Id`)
-    REFERENCES `ListSet`
+    REFERENCES `Sell_ListSet`
         (`Id`)
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -102,9 +133,9 @@ CREATE INDEX `IX_FK_ArticleList`
     ON `ArticleSet`
     (`List_Id`);
 
--- Creating foreign key on `Seller_Id` in table 'ListSet'
+-- Creating foreign key on `Seller_Id` in table 'Sell_ListSet'
 
-ALTER TABLE `ListSet`
+ALTER TABLE `Sell_ListSet`
 ADD CONSTRAINT `FK_ListSeller`
     FOREIGN KEY (`Seller_Id`)
     REFERENCES `SellerSet`
@@ -114,7 +145,7 @@ ADD CONSTRAINT `FK_ListSeller`
 -- Creating non-clustered index for FOREIGN KEY 'FK_ListSeller'
 
 CREATE INDEX `IX_FK_ListSeller` 
-    ON `ListSet`
+    ON `Sell_ListSet`
     (`Seller_Id`);
 
 -- --------------------------------------------------

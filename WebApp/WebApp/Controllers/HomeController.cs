@@ -19,18 +19,6 @@ namespace WebApp.Controllers
         public ActionResult Index()
         {
             ViewBag.Location = Properties.Resources.menuListLists;
-
-            NewListViewModel model = new NewListViewModel();
-
-            model.brands = dao.GetBrands();
-
-            ViewBag.Message = string.Format("number of brands in DB: {0}", model.brands.Count());
-
-            return View(model);
-        }
-
-        public ActionResult About()
-        {
             return View();
         }
     }

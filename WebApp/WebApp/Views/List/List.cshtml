@@ -1,0 +1,76 @@
+﻿@model WebApp.Models.NewListViewModel
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#SelectedArticleId").autocomplete({
+            source: '@Url.Action("AutocompleteArticle")'
+        });
+
+        $("#SelectedDetailColorId").autocomplete({
+            source: '@Url.Action("AutocompleteDetails")'
+        });
+
+        $("#SelectedBrandId").autocomplete({
+            source: '@Url.Action("AutocompleteBrands")'
+        });
+
+        $("#SelectedSizeId").autocomplete({
+            source: '@Url.Action("AutocompleteSizes")'
+        });
+
+        $("#SelectedPriceId").autocomplete({
+            source: '@Url.Action("AutocompletePrices")'
+        });
+    });
+</script>
+
+@Html.ValidationSummary(false)
+
+<table border="0">
+<tr>
+<td>@Html.LabelFor(x => x.ListBO.NumberClothes)</td>
+<td>@Html.EditorFor(x => x.ListBO.NumberClothes)</td>
+<td>@Html.LabelFor(x => x.ListBO.NumberToys)</td>
+<td>@Html.EditorFor(x => x.ListBO.NumberToys)</td>
+</tr>
+<tr>
+<td>@Html.LabelFor(x => x.ListBO.Seller.Name)</td>
+<td>@Html.EditorFor(x => x.ListBO.Seller.Name)</td>
+<td>@Html.LabelFor(x => x.ListBO.Seller.City)</td>
+<td>@Html.EditorFor(x => x.ListBO.Seller.City)</td>
+<td>@Html.LabelFor(x => x.ListBO.Seller.Phone)</td>
+<td>@Html.EditorFor(x => x.ListBO.Seller.Phone)</td>
+<td>@Html.LabelFor(x => x.ListBO.Seller.Mail)</td>
+<td>@Html.EditorFor(x => x.ListBO.Seller.Mail)</td>
+</tr>
+</table>
+
+<br/>
+
+<table border="3">
+<tr>
+<td>@Html.LabelFor(x => x.SelectedArticleId)</td>
+<td>@Html.TextBoxFor(x => x.SelectedArticleId)</td>
+
+<td>@Html.LabelFor(x => x.SelectedDetailColorId)</td>
+<td>@Html.TextBoxFor(x => x.SelectedDetailColorId)</td>
+
+<td>@Html.LabelFor(x => x.SelectedBrandId)</td>
+<td>@Html.TextBoxFor(x => x.SelectedBrandId)</td>
+
+<td>@Html.LabelFor(x => x.SelectedSizeId)</td>
+<td>@Html.TextBoxFor(x => x.SelectedSizeId)</td>
+
+<td>@Html.LabelFor(x => x.SelectedPriceId)</td>
+<td>@Html.TextBoxFor(x => x.SelectedPriceId)</td>
+
+<td>@Html.LabelFor(x => x.isAToy)</td>
+<td>@Html.EditorFor(x => x.isAToy)</td>
+</tr>
+</table>

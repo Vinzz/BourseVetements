@@ -120,8 +120,20 @@
   <data name="AppName" xml:space="preserve">
     <value>Bourse aux vêtements</value>
   </data>
+  <data name="Article" xml:space="preserve">
+    <value>Article</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Marque</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Couleur / Détails</value>
+  </data>
   <data name="menuAdmin" xml:space="preserve">
     <value>Administration</value>
+  </data>
+  <data name="menuEditList" xml:space="preserve">
+    <value>Edition liste</value>
   </data>
   <data name="menuListLists" xml:space="preserve">
     <value>Liste des listes</value>
@@ -131,5 +143,14 @@
   </data>
   <data name="menuSell" xml:space="preserve">
     <value>Vente</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Prix</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Taille</value>
+  </data>
+  <data name="Toy" xml:space="preserve">
+    <value>Jouet</value>
   </data>
 </root>

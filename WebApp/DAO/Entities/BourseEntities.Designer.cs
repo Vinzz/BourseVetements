@@ -134,6 +134,70 @@ namespace DAO.Entities
             }
         }
         private ObjectSet<Brands> _BrandsSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Articles> ArticlesSet
+        {
+            get
+            {
+                if ((_ArticlesSet == null))
+                {
+                    _ArticlesSet = base.CreateObjectSet<Articles>("ArticlesSet");
+                }
+                return _ArticlesSet;
+            }
+        }
+        private ObjectSet<Articles> _ArticlesSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Details> DetailsSet
+        {
+            get
+            {
+                if ((_DetailsSet == null))
+                {
+                    _DetailsSet = base.CreateObjectSet<Details>("DetailsSet");
+                }
+                return _DetailsSet;
+            }
+        }
+        private ObjectSet<Details> _DetailsSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Sizes> SizesSet
+        {
+            get
+            {
+                if ((_SizesSet == null))
+                {
+                    _SizesSet = base.CreateObjectSet<Sizes>("SizesSet");
+                }
+                return _SizesSet;
+            }
+        }
+        private ObjectSet<Sizes> _SizesSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Prices> PricesSet
+        {
+            get
+            {
+                if ((_PricesSet == null))
+                {
+                    _PricesSet = base.CreateObjectSet<Prices>("PricesSet");
+                }
+                return _PricesSet;
+            }
+        }
+        private ObjectSet<Prices> _PricesSet;
 
         #endregion
         #region AddTo Methods
@@ -168,6 +232,38 @@ namespace DAO.Entities
         public void AddToBrandsSet(Brands brands)
         {
             base.AddObject("BrandsSet", brands);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ArticlesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToArticlesSet(Articles articles)
+        {
+            base.AddObject("ArticlesSet", articles);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the DetailsSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDetailsSet(Details details)
+        {
+            base.AddObject("DetailsSet", details);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the SizesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSizesSet(Sizes sizes)
+        {
+            base.AddObject("SizesSet", sizes);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the PricesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPricesSet(Prices prices)
+        {
+            base.AddObject("PricesSet", prices);
         }
 
         #endregion
@@ -433,6 +529,87 @@ namespace DAO.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Articles")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Articles : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Articles object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static Articles CreateArticles(global::System.Int32 id, global::System.String name)
+        {
+            Articles articles = new Articles();
+            articles.Id = id;
+            articles.Name = name;
+            return articles;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Brands")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -514,6 +691,168 @@ namespace DAO.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Details")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Details : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Details object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static Details CreateDetails(global::System.Int32 id, global::System.String name)
+        {
+            Details details = new Details();
+            details.Id = id;
+            details.Name = name;
+            return details;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Prices")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Prices : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Prices object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static Prices CreatePrices(global::System.Int32 id, global::System.String name)
+        {
+            Prices prices = new Prices();
+            prices.Id = id;
+            prices.Name = name;
+            return prices;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Sell_List")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -527,12 +866,16 @@ namespace DAO.Entities
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="creator">Initial value of the Creator property.</param>
         /// <param name="remarks">Initial value of the Remarks property.</param>
-        public static Sell_List CreateSell_List(global::System.Int32 id, global::System.String creator, global::System.String remarks)
+        /// <param name="numberClothes">Initial value of the NumberClothes property.</param>
+        /// <param name="numberToys">Initial value of the NumberToys property.</param>
+        public static Sell_List CreateSell_List(global::System.Int32 id, global::System.String creator, global::System.String remarks, global::System.String numberClothes, global::System.String numberToys)
         {
             Sell_List sell_List = new Sell_List();
             sell_List.Id = id;
             sell_List.Creator = creator;
             sell_List.Remarks = remarks;
+            sell_List.NumberClothes = numberClothes;
+            sell_List.NumberToys = numberToys;
             return sell_List;
         }
 
@@ -613,6 +956,54 @@ namespace DAO.Entities
         private global::System.String _Remarks;
         partial void OnRemarksChanging(global::System.String value);
         partial void OnRemarksChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String NumberClothes
+        {
+            get
+            {
+                return _NumberClothes;
+            }
+            set
+            {
+                OnNumberClothesChanging(value);
+                ReportPropertyChanging("NumberClothes");
+                _NumberClothes = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("NumberClothes");
+                OnNumberClothesChanged();
+            }
+        }
+        private global::System.String _NumberClothes;
+        partial void OnNumberClothesChanging(global::System.String value);
+        partial void OnNumberClothesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String NumberToys
+        {
+            get
+            {
+                return _NumberToys;
+            }
+            set
+            {
+                OnNumberToysChanging(value);
+                ReportPropertyChanging("NumberToys");
+                _NumberToys = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("NumberToys");
+                OnNumberToysChanged();
+            }
+        }
+        private global::System.String _NumberToys;
+        partial void OnNumberToysChanging(global::System.String value);
+        partial void OnNumberToysChanged();
 
         #endregion
     
@@ -863,6 +1254,87 @@ namespace DAO.Entities
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Sizes")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Sizes : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Sizes object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static Sizes CreateSizes(global::System.Int32 id, global::System.String name)
+        {
+            Sizes sizes = new Sizes();
+            sizes.Id = id;
+            sizes.Name = name;
+            return sizes;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+    
     }
 
     #endregion

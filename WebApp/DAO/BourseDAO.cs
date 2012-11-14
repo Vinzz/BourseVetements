@@ -19,12 +19,22 @@ namespace DAO
             }
         }
 
-        public void SetBrands(IEnumerable<Entities.Brands> brands)
+        public IEnumerable<Articles> GetArticles()
         {
             throw new NotImplementedException();
         }
 
-        public void InsertNewList(Entities.Sell_List newList)
+        public IEnumerable<Details> GetDetails()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Sizes> GetSizes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Prices> GetPrices()
         {
             throw new NotImplementedException();
         }

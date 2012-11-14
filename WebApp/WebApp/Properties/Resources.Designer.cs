@@ -70,11 +70,47 @@ namespace WebApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Article.
+        /// </summary>
+        public static string Article {
+            get {
+                return ResourceManager.GetString("Article", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marque.
+        /// </summary>
+        public static string Brand {
+            get {
+                return ResourceManager.GetString("Brand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Couleur / Détails.
+        /// </summary>
+        public static string Details {
+            get {
+                return ResourceManager.GetString("Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Administration.
         /// </summary>
         public static string menuAdmin {
             get {
                 return ResourceManager.GetString("menuAdmin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edition liste.
+        /// </summary>
+        public static string menuEditList {
+            get {
+                return ResourceManager.GetString("menuEditList", resourceCulture);
             }
         }
         
@@ -102,6 +138,33 @@ namespace WebApp.Properties {
         public static string menuSell {
             get {
                 return ResourceManager.GetString("menuSell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prix.
+        /// </summary>
+        public static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taille.
+        /// </summary>
+        public static string Size {
+            get {
+                return ResourceManager.GetString("Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jouet.
+        /// </summary>
+        public static string Toy {
+            get {
+                return ResourceManager.GetString("Toy", resourceCulture);
             }
         }
     }
