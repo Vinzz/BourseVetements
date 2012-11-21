@@ -29,9 +29,9 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="longtext" Nullable="false" />
-    <Property Name="City" Type="longtext" Nullable="false" />
-    <Property Name="Phone" Type="longtext" Nullable="false" />
-    <Property Name="Mail" Type="longtext" Nullable="false" />
+    <Property Name="City" Type="longtext" Nullable="true" />
+    <Property Name="Phone" Type="longtext" Nullable="true" />
+    <Property Name="Mail" Type="longtext" Nullable="true" />
   </EntityType>
   <EntityType Name="ArticleSet">
     <Key>
@@ -39,9 +39,9 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="longtext" Nullable="false" />
-    <Property Name="Details" Type="longtext" Nullable="false" />
-    <Property Name="Brand" Type="longtext" Nullable="false" />
-    <Property Name="Size" Type="longtext" Nullable="false" />
+    <Property Name="Details" Type="longtext" Nullable="true" />
+    <Property Name="Brand" Type="longtext" Nullable="true" />
+    <Property Name="Size" Type="longtext" Nullable="true" />
     <Property Name="Price" Type="double" Nullable="false" />
     <Property Name="isToy" Type="bool" Nullable="false" />
     <Property Name="List_Id" Type="int" Nullable="false" />
@@ -53,8 +53,8 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Creator" Type="longtext" Nullable="false" />
     <Property Name="Remarks" Type="longtext" Nullable="false" />
-    <Property Name="NumberClothes" Type="longtext" Nullable="false" />
-    <Property Name="NumberToys" Type="longtext" Nullable="false" />
+    <Property Name="NumberClothes" Type="int" Nullable="false" />
+    <Property Name="NumberToys" Type="int" Nullable="false" />
     <Property Name="Seller_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="BrandsSet">
@@ -144,9 +144,9 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" Unicode="true" />
-          <Property Type="String" Name="City" Nullable="false" Unicode="true" />
-          <Property Type="String" Name="Phone" Nullable="false" Unicode="true" />
-          <Property Type="String" Name="Mail" Nullable="false" Unicode="true" />
+          <Property Type="String" Name="City" Unicode="true" Nullable="true" />
+          <Property Type="String" Name="Phone" Unicode="true" Nullable="true" />
+          <Property Type="String" Name="Mail" Unicode="true" Nullable="true" />
           <NavigationProperty Name="List" Relationship="Model1.ListSeller" FromRole="Seller" ToRole="List" />
         </EntityType>
         <EntityType Name="Article">
@@ -155,9 +155,9 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" Unicode="true" />
-          <Property Type="String" Name="Details" Nullable="false" Unicode="true" />
-          <Property Type="String" Name="Brand" Nullable="false" Unicode="true" />
-          <Property Type="String" Name="Size" Nullable="false" Unicode="true" />
+          <Property Type="String" Name="Details" Unicode="true" Nullable="true" />
+          <Property Type="String" Name="Brand" Unicode="true" Nullable="true" />
+          <Property Type="String" Name="Size" Unicode="true" Nullable="true" />
           <Property Type="Double" Name="Price" Nullable="false" />
           <Property Type="Boolean" Name="isToy" Nullable="false" />
           <NavigationProperty Name="List" Relationship="Model1.ArticleList" FromRole="Article" ToRole="List" />
@@ -171,8 +171,8 @@
           <Property Type="String" Name="Remarks" Nullable="false" />
           <NavigationProperty Name="Article" Relationship="Model1.ArticleList" FromRole="List" ToRole="Article" />
           <NavigationProperty Name="Seller" Relationship="Model1.ListSeller" FromRole="List" ToRole="Seller" />
-          <Property Type="String" Name="NumberClothes" Nullable="false" />
-          <Property Type="String" Name="NumberToys" Nullable="false" />
+          <Property Type="Int32" Name="NumberClothes" Nullable="false" />
+          <Property Type="Int32" Name="NumberToys" Nullable="false" />
         </EntityType>
         <Association Name="ArticleList">
           <End Type="Model1.Article" Role="Article" Multiplicity="*" />

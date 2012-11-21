@@ -5,7 +5,7 @@
 -- -----------------------------------------------------------
 -- Entity Designer DDL Script for MySQL Server 4.1 and higher
 -- -----------------------------------------------------------
--- Date Created: 11/14/2012 22:16:46
+-- Date Created: 11/21/2012 23:22:30
 -- Generated from EDMX file: C:\Documents and Settings\Fanny\Mes documents\GitHub\BourseVetements\WebApp\DAO\Entities\BourseEntities.edmx
 -- Target version: 2.0.0.0
 -- --------------------------------------------------
@@ -42,9 +42,9 @@ SET foreign_key_checks = 1;
 CREATE TABLE `SellerSet` (
     `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `Name` longtext  NOT NULL,
-    `City` longtext  NOT NULL,
-    `Phone` longtext  NOT NULL,
-    `Mail` longtext  NOT NULL
+    `City` longtext  NULL,
+    `Phone` longtext  NULL,
+    `Mail` longtext  NULL
 );
 
 -- Creating table 'ArticleSet'
@@ -52,9 +52,9 @@ CREATE TABLE `SellerSet` (
 CREATE TABLE `ArticleSet` (
     `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `Name` longtext  NOT NULL,
-    `Details` longtext  NOT NULL,
-    `Brand` longtext  NOT NULL,
-    `Size` longtext  NOT NULL,
+    `Details` longtext  NULL,
+    `Brand` longtext  NULL,
+    `Size` longtext  NULL,
     `Price` double  NOT NULL,
     `isToy` bool  NOT NULL,
     `List_Id` int  NOT NULL
@@ -66,8 +66,8 @@ CREATE TABLE `Sell_ListSet` (
     `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `Creator` longtext  NOT NULL,
     `Remarks` longtext  NOT NULL,
-    `NumberClothes` longtext  NOT NULL,
-    `NumberToys` longtext  NOT NULL,
+    `NumberClothes` int  NOT NULL,
+    `NumberToys` int  NOT NULL,
     `Seller_Id` int  NOT NULL
 );
 

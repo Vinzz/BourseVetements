@@ -289,19 +289,13 @@ namespace DAO.Entities
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        /// <param name="details">Initial value of the Details property.</param>
-        /// <param name="brand">Initial value of the Brand property.</param>
-        /// <param name="size">Initial value of the Size property.</param>
         /// <param name="price">Initial value of the Price property.</param>
         /// <param name="isToy">Initial value of the isToy property.</param>
-        public static Article CreateArticle(global::System.Int32 id, global::System.String name, global::System.String details, global::System.String brand, global::System.String size, global::System.Double price, global::System.Boolean isToy)
+        public static Article CreateArticle(global::System.Int32 id, global::System.String name, global::System.Double price, global::System.Boolean isToy)
         {
             Article article = new Article();
             article.Id = id;
             article.Name = name;
-            article.Details = details;
-            article.Brand = brand;
-            article.Size = size;
             article.Price = price;
             article.isToy = isToy;
             return article;
@@ -364,7 +358,7 @@ namespace DAO.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Details
         {
@@ -376,7 +370,7 @@ namespace DAO.Entities
             {
                 OnDetailsChanging(value);
                 ReportPropertyChanging("Details");
-                _Details = StructuralObject.SetValidValue(value, false);
+                _Details = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Details");
                 OnDetailsChanged();
             }
@@ -388,7 +382,7 @@ namespace DAO.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Brand
         {
@@ -400,7 +394,7 @@ namespace DAO.Entities
             {
                 OnBrandChanging(value);
                 ReportPropertyChanging("Brand");
-                _Brand = StructuralObject.SetValidValue(value, false);
+                _Brand = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Brand");
                 OnBrandChanged();
             }
@@ -412,7 +406,7 @@ namespace DAO.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Size
         {
@@ -424,7 +418,7 @@ namespace DAO.Entities
             {
                 OnSizeChanging(value);
                 ReportPropertyChanging("Size");
-                _Size = StructuralObject.SetValidValue(value, false);
+                _Size = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Size");
                 OnSizeChanged();
             }
@@ -868,7 +862,7 @@ namespace DAO.Entities
         /// <param name="remarks">Initial value of the Remarks property.</param>
         /// <param name="numberClothes">Initial value of the NumberClothes property.</param>
         /// <param name="numberToys">Initial value of the NumberToys property.</param>
-        public static Sell_List CreateSell_List(global::System.Int32 id, global::System.String creator, global::System.String remarks, global::System.String numberClothes, global::System.String numberToys)
+        public static Sell_List CreateSell_List(global::System.Int32 id, global::System.String creator, global::System.String remarks, global::System.Int32 numberClothes, global::System.Int32 numberToys)
         {
             Sell_List sell_List = new Sell_List();
             sell_List.Id = id;
@@ -962,7 +956,7 @@ namespace DAO.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String NumberClothes
+        public global::System.Int32 NumberClothes
         {
             get
             {
@@ -972,13 +966,13 @@ namespace DAO.Entities
             {
                 OnNumberClothesChanging(value);
                 ReportPropertyChanging("NumberClothes");
-                _NumberClothes = StructuralObject.SetValidValue(value, false);
+                _NumberClothes = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("NumberClothes");
                 OnNumberClothesChanged();
             }
         }
-        private global::System.String _NumberClothes;
-        partial void OnNumberClothesChanging(global::System.String value);
+        private global::System.Int32 _NumberClothes;
+        partial void OnNumberClothesChanging(global::System.Int32 value);
         partial void OnNumberClothesChanged();
     
         /// <summary>
@@ -986,7 +980,7 @@ namespace DAO.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String NumberToys
+        public global::System.Int32 NumberToys
         {
             get
             {
@@ -996,13 +990,13 @@ namespace DAO.Entities
             {
                 OnNumberToysChanging(value);
                 ReportPropertyChanging("NumberToys");
-                _NumberToys = StructuralObject.SetValidValue(value, false);
+                _NumberToys = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("NumberToys");
                 OnNumberToysChanged();
             }
         }
-        private global::System.String _NumberToys;
-        partial void OnNumberToysChanging(global::System.String value);
+        private global::System.Int32 _NumberToys;
+        partial void OnNumberToysChanging(global::System.Int32 value);
         partial void OnNumberToysChanged();
 
         #endregion
@@ -1087,17 +1081,11 @@ namespace DAO.Entities
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        /// <param name="city">Initial value of the City property.</param>
-        /// <param name="phone">Initial value of the Phone property.</param>
-        /// <param name="mail">Initial value of the Mail property.</param>
-        public static Seller CreateSeller(global::System.Int32 id, global::System.String name, global::System.String city, global::System.String phone, global::System.String mail)
+        public static Seller CreateSeller(global::System.Int32 id, global::System.String name)
         {
             Seller seller = new Seller();
             seller.Id = id;
             seller.Name = name;
-            seller.City = city;
-            seller.Phone = phone;
-            seller.Mail = mail;
             return seller;
         }
 
@@ -1158,7 +1146,7 @@ namespace DAO.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String City
         {
@@ -1170,7 +1158,7 @@ namespace DAO.Entities
             {
                 OnCityChanging(value);
                 ReportPropertyChanging("City");
-                _City = StructuralObject.SetValidValue(value, false);
+                _City = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("City");
                 OnCityChanged();
             }
@@ -1182,7 +1170,7 @@ namespace DAO.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Phone
         {
@@ -1194,7 +1182,7 @@ namespace DAO.Entities
             {
                 OnPhoneChanging(value);
                 ReportPropertyChanging("Phone");
-                _Phone = StructuralObject.SetValidValue(value, false);
+                _Phone = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Phone");
                 OnPhoneChanged();
             }
@@ -1206,7 +1194,7 @@ namespace DAO.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Mail
         {
@@ -1218,7 +1206,7 @@ namespace DAO.Entities
             {
                 OnMailChanging(value);
                 ReportPropertyChanging("Mail");
-                _Mail = StructuralObject.SetValidValue(value, false);
+                _Mail = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Mail");
                 OnMailChanged();
             }

@@ -60,11 +60,22 @@
     </Compile>
     <Compile Include="Entities\DBConnection.cs" />
     <Compile Include="IBourseDAO.cs" />
+    <Compile Include="Metadatas\Article.cs" />
+    <Compile Include="Metadatas\ArticleMetadatas.cs" />
+    <Compile Include="Metadatas\Seller.cs" />
+    <Compile Include="Metadatas\SellerMetadatas.cs" />
+    <Compile Include="Metadatas\Sell_List.cs" />
+    <Compile Include="Metadatas\Sell_ListMetadatas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +92,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entities\BourseEntities.edmx.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

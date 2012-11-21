@@ -6,11 +6,17 @@ using DAO.Entities;
 using DAO;
 using System.ComponentModel.DataAnnotations;
 using WebApp.Properties;
+using System.Data.Objects.DataClasses;
 
 namespace WebApp.Models
 {
     public class NewListViewModel
     {
+        public NewListViewModel()
+        {
+            ListBO = new Sell_List();
+        }
+
         public Sell_List ListBO { get; set; }
 
         [Display(Name = "Article", ResourceType = typeof(Resources))]

@@ -13,5 +13,15 @@ namespace DAO
         IEnumerable<Brands> GetBrands();
         IEnumerable<Sizes> GetSizes();
         IEnumerable<Prices> GetPrices();
+
+        void AddArticle(string newArticle);
+
+        void AddDetail(string newDetail);
+
+        void AddBrand(string newBrand);
+
+        void AddSize(string newSize);
+
+        void AddPrice(string newPrice);
     }
 }

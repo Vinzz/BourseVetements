@@ -38,5 +38,31 @@ namespace DAO
         {
             throw new NotImplementedException();
         }
+
+
+        public void AddArticle(string newArticle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddDetail(string newDetail)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddBrand(string newBrand)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddSize(string newSize)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddPrice(string newPrice)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

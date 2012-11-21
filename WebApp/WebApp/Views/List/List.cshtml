@@ -30,7 +30,10 @@
     });
 </script>
 
-@Html.ValidationSummary(false)
+@using (Html.BeginForm("AddArticle","List"))
+{
+
+    @Html.ValidationSummary(true)
 
 <table border="0">
 <tr>
@@ -73,4 +76,57 @@
 <td>@Html.LabelFor(x => x.isAToy)</td>
 <td>@Html.EditorFor(x => x.isAToy)</td>
 </tr>
+<tr><td><input type="submit" value="Ajouter" /></td></tr>
 </table>
+}
+
+  <table>
+        <tr>
+            <th>
+                 @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Name)
+            </th>
+            <th>
+                 @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Details)
+            </th>
+            <th>
+                 @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Brand)
+            </th>
+             <th>
+                 @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Size)
+            </th>
+             <th>
+                 @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Price)
+            </th>
+             <th>
+                 @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().isToy)
+            </th>
+        </tr>
+
+@foreach (var item in Model.ListBO.Article) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.isToy)
+            </td>
+
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { modelId = item.Id })
+            </td>*@
+        </tr>
+    }
+    </table>
