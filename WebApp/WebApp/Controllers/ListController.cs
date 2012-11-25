@@ -21,8 +21,8 @@ namespace WebApp.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Location = Properties.Resources.menuEditList;
-
+            // ViewBag.Location = Properties.Resources.menuEditList;
+            ViewBag.Location = "Number of Brands = " + this.dao.GetBrands().Count();
             NewListViewModel model = new NewListViewModel();
 
             return View("List", model);
