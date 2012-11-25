@@ -1,21 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DAO.Entities;
-
+﻿// --------------------------------------------------------------------------------------------
+// <copyright file="DummyDAO.cs" company="Yocto Projects">
+// 2012. Distributed under the GPL.
+// </copyright>
+// --------------------------------------------------------------------------------------------
 namespace DAO
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using DAO.Entities;
+
+    /// <summary>
+    /// Dummy not connected DAO
+    /// </summary>
     public class DummyDAO : IBourseDAO
     {
-        public string serverURI { get; set; }
+        /// <summary>
+        /// Gets or sets the server URI.
+        /// </summary>
+        /// <value>
+        /// The server URI.
+        /// </value>
+        public string ServerURI { get; set; }
 
-        List<Brands> brands = new List<Brands>();
-        List<Articles> articles = new List<Articles>();
-        List<Details> details = new List<Details>();
-        List<Sizes> sizes = new List<Sizes>();
-        List<Prices> prices = new List<Prices>();
+        /// <summary>
+        /// The brands
+        /// </summary>
+        private List<Brands> brands = new List<Brands>();
 
+        /// <summary>
+        /// The articles
+        /// </summary>
+        private List<Articles> articles = new List<Articles>();
+
+        /// <summary>
+        /// The details
+        /// </summary>
+        private List<Details> details = new List<Details>();
+
+        /// <summary>
+        /// The sizes
+        /// </summary>
+        private List<Sizes> sizes = new List<Sizes>();
+
+        /// <summary>
+        /// The prices
+        /// </summary>
+        private List<Prices> prices = new List<Prices>();
+
+        /// <summary>
+        /// Gets the brands.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Brands> GetBrands()
         {
             if (brands.Count == 0)
@@ -35,6 +72,10 @@ namespace DAO
             return brands;
         }
 
+        /// <summary>
+        /// Gets the articles.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Articles> GetArticles()
         {
             if (articles.Count == 0)
@@ -54,6 +95,10 @@ namespace DAO
             return articles;
         }
 
+        /// <summary>
+        /// Gets the details.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Details> GetDetails()
         {
             if (details.Count == 0)
@@ -73,6 +118,10 @@ namespace DAO
             return details;
         }
 
+        /// <summary>
+        /// Gets the sizes.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Sizes> GetSizes()
         {
             if (sizes.Count == 0)
@@ -92,6 +141,10 @@ namespace DAO
             return sizes;
         }
 
+        /// <summary>
+        /// Gets the prices.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Prices> GetPrices()
         {
             if (prices.Count == 0)
@@ -111,6 +164,10 @@ namespace DAO
             return prices;
         }
 
+        /// <summary>
+        /// Adds the article.
+        /// </summary>
+        /// <param name="newArticle">The new article.</param>
         public void AddArticle(string newArticle)
         {
             articles.Add(new Articles()
@@ -120,6 +177,10 @@ namespace DAO
             });
         }
 
+        /// <summary>
+        /// Adds the detail.
+        /// </summary>
+        /// <param name="newDetail">The new detail.</param>
         public void AddDetail(string newDetail)
         {
             details.Add(new Details()
@@ -129,6 +190,10 @@ namespace DAO
             });
         }
 
+        /// <summary>
+        /// Adds the brand.
+        /// </summary>
+        /// <param name="newBrand">The new brand.</param>
         public void AddBrand(string newBrand)
         {
             brands.Add(new Brands()
@@ -138,6 +203,10 @@ namespace DAO
             });
         }
 
+        /// <summary>
+        /// Adds the size.
+        /// </summary>
+        /// <param name="newSize">The new size.</param>
         public void AddSize(string newSize)
         {
             sizes.Add(new Sizes()
@@ -147,6 +216,10 @@ namespace DAO
             });
         }
 
+        /// <summary>
+        /// Adds the price.
+        /// </summary>
+        /// <param name="newPrice">The new price.</param>
         public void AddPrice(string newPrice)
         {
             prices.Add(new Prices()

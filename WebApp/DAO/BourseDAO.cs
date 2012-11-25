@@ -1,19 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data.EntityClient;
-using DAO.Entities;
-
+﻿// --------------------------------------------------------------------------------------------
+// <copyright file="BourseDAO.cs" company="Yocto Projects">
+// 2012. Distributed under the GPL.
+// </copyright>
+// --------------------------------------------------------------------------------------------
 namespace DAO
 {
+    using System.Collections.Generic;
+    using System.Data.EntityClient;
+    using System.Linq;
+    using DAO.Entities;
+
+    /// <summary>
+    /// Entity framework DAO
+    /// </summary>
     public class BourseDAO : IBourseDAO
     {
-        public string serverURI {get; set;}
+        /// <summary>
+        /// Gets or sets the server URI.
+        /// </summary>
+        /// <value>
+        /// The server URI.
+        /// </value>
+        public string ServerURI { get; set; }
 
+        /// <summary>
+        /// Gets the brands.
+        /// </summary>
+        /// <returns>the brands</returns>
         public IEnumerable<Entities.Brands> GetBrands()
         {
-            using (EntityConnection connection = DBConnection.GetEntityConnection(this.serverURI))
+            using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
             {
                 BourseEntities context = new BourseEntities(connection);
 
@@ -21,50 +37,145 @@ namespace DAO
             }
         }
 
+        /// <summary>
+        /// Gets the articles.
+        /// </summary>
+        /// <returns>the articles</returns>
         public IEnumerable<Articles> GetArticles()
         {
-            throw new NotImplementedException();
+            using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
+            {
+                BourseEntities context = new BourseEntities(connection);
+
+                return context.ArticlesSet.ToList();
+            }
         }
 
+        /// <summary>
+        /// Gets the details.
+        /// </summary>
+        /// <returns>the details</returns>
         public IEnumerable<Details> GetDetails()
         {
-            throw new NotImplementedException();
+            using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
+            {
+                BourseEntities context = new BourseEntities(connection);
+
+                return context.DetailsSet.ToList();
+            }
         }
 
+        /// <summary>
+        /// Gets the sizes.
+        /// </summary>
+        /// <returns>the sizes</returns>
         public IEnumerable<Sizes> GetSizes()
         {
-            throw new NotImplementedException();
+            using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
+            {
+                BourseEntities context = new BourseEntities(connection);
+
+                return context.SizesSet.ToList();
+            }
         }
 
+        /// <summary>
+        /// Gets the prices.
+        /// </summary>
+        /// <returns>the prices</returns>
         public IEnumerable<Prices> GetPrices()
         {
-            throw new NotImplementedException();
+            using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
+            {
+                BourseEntities context = new BourseEntities(connection);
+
+                return context.PricesSet.ToList();
+            }
         }
 
-
+        /// <summary>
+        /// Adds the article.
+        /// </summary>
+        /// <param name="newArticle">The new article.</param>
         public void AddArticle(string newArticle)
         {
-            throw new NotImplementedException();
+            using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
+            {
+                BourseEntities context = new BourseEntities(connection);
+
+                context.ArticlesSet.AddObject(new Articles()
+                    {
+                        Name = newArticle
+                    });
+            }
         }
 
+        /// <summary>
+        /// Adds the detail.
+        /// </summary>
+        /// <param name="newDetail">The new detail.</param>
         public void AddDetail(string newDetail)
         {
-            throw new NotImplementedException();
+            using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
+            {
+                BourseEntities context = new BourseEntities(connection);
+
+                context.DetailsSet.AddObject(new Details()
+                {
+                    Name = newDetail
+                });
+            }
         }
 
+        /// <summary>
+        /// Adds the brand.
+        /// </summary>
+        /// <param name="newBrand">The new brand.</param>
         public void AddBrand(string newBrand)
         {
-            throw new NotImplementedException();
+            using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
+            {
+                BourseEntities context = new BourseEntities(connection);
+
+                context.BrandsSet.AddObject(new Brands()
+                {
+                    Name = newBrand
+                });
+            }
         }
 
+        /// <summary>
+        /// Adds the size.
+        /// </summary>
+        /// <param name="newSize">The new size.</param>
         public void AddSize(string newSize)
         {
-            throw new NotImplementedException();
+            using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
+            {
+                BourseEntities context = new BourseEntities(connection);
+
+                context.SizesSet.AddObject(new Sizes()
+                {
+                    Name = newSize
+                });
+            }
         }
 
+        /// <summary>
+        /// Adds the price.
+        /// </summary>
+        /// <param name="newPrice">The new price.</param>
         public void AddPrice(string newPrice)
         {
-            throw new NotImplementedException();
+            using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
+            {
+                BourseEntities context = new BourseEntities(connection);
+
+                context.PricesSet.AddObject(new Prices()
+                {
+                    Name = newPrice
+                });
+            }
         }
     }
 }

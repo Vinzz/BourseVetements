@@ -7,6 +7,7 @@ using DAO;
 using WebApp.Models;
 using Lib.Web.Mvc;
 using DAO.Entities;
+using System.Configuration;
 
 namespace WebApp.Controllers
 {
@@ -17,13 +18,13 @@ namespace WebApp.Controllers
         public ListController(IBourseDAO dao)
         {
             this.dao = dao;
-            this.dao.serverURI = Properties.Settings.Default.SQLSERVER_URI;
+            this.dao.ServerURI = ConfigurationManager.AppSettings["SQLSERVER_URI"];
         }
 
         public ActionResult Index()
         {
             // ViewBag.Location = Properties.Resources.menuEditList;
-            ViewBag.Location = new Uri(Properties.Settings.Default.SQLSERVER_URI).Host;
+            ViewBag.Location = new Uri(ConfigurationManager.AppSettings["SQLSERVER_URI"]).Host;
             NewListViewModel model = new NewListViewModel();
 
             return View("List", model);
