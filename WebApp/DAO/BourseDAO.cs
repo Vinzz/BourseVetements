@@ -15,7 +15,7 @@ namespace DAO
             {
                 BourseEntities context = new BourseEntities(connection);
 
-                return context.BrandsSet;
+                return context.BrandsSet.ToList();
             }
         }
 

@@ -13,7 +13,7 @@ namespace BourseDAOTests
     [TestFixture]
     public class TestDBConnection
     {
-        //[Test]
+        // [Test]
         public void GetSomeBrands()
         {
             using (EntityConnection connection = DBConnection.GetEntityConnection())
