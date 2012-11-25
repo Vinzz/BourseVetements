@@ -14,14 +14,12 @@ namespace DAO
         /// connection parameters are decrypted
         /// </summary>
         /// <returns>An Entity (Framework) connection</returns>
-        public static EntityConnection GetEntityConnection()
+        public static EntityConnection GetEntityConnection(string serverURI)
         {
             EntityConnection ans = null;
             EntityConnection conn = null;
             try
             {
-                SqlConnectionStringBuilder sqlBuilder = GetSqlBuilder();
-
                 // Initialize the EntityConnectionStringBuilder.
                 EntityConnectionStringBuilder entityBuilder =
                     new EntityConnectionStringBuilder();
@@ -30,7 +28,7 @@ namespace DAO
                 entityBuilder.Provider = "MySql.Data.MySqlClient";
 
                 // Set the provider-specific connection string.
-                entityBuilder.ProviderConnectionString = GetSqlBuilder().ToString();
+                entityBuilder.ProviderConnectionString = GetSqlBuilder(serverURI).ToString();
 
                 // Set the Metadata location.
                 entityBuilder.Metadata = @"res://*/Entities.BourseEntities.csdl|res://*/Entities.BourseEntities.ssdl|res://*/Entities.BourseEntities.msl";
@@ -66,10 +64,9 @@ namespace DAO
         /// Gets the SQL connexion string from the settings.
         /// </summary>
         /// <returns>A SQL connexion string builder</returns>
-        private static SqlConnectionStringBuilder GetSqlBuilder()
+        private static SqlConnectionStringBuilder GetSqlBuilder(string serverURI)
         {
-            var uriString = Properties.Settings.Default.SQLSERVER_URI;
-            var uri = new Uri(uriString);
+            var uri = new Uri(serverURI);
             return new SqlConnectionStringBuilder
             {
                 DataSource = uri.Host,

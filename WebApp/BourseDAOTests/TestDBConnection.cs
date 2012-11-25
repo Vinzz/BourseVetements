@@ -13,15 +13,5 @@ namespace BourseDAOTests
     [TestFixture]
     public class TestDBConnection
     {
-        // [Test]
-        public void GetSomeBrands()
-        {
-            using (EntityConnection connection = DBConnection.GetEntityConnection())
-            {
-                BourseEntities context = new BourseEntities(connection);
-
-                Assert.IsTrue(context.BrandsSet.Count() > 0);
-            }
-        }
     }
 }

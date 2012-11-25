@@ -22,14 +22,5 @@ namespace DAO.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mysql://root:root@fannyXP/BourseEntities")]
-        public string SQLSERVER_URI {
-            get {
-                return ((string)(this["SQLSERVER_URI"]));
-            }
-        }
     }
 }

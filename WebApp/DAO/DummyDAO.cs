@@ -8,6 +8,8 @@ namespace DAO
 {
     public class DummyDAO : IBourseDAO
     {
+        public string serverURI { get; set; }
+
         List<Brands> brands = new List<Brands>();
         List<Articles> articles = new List<Articles>();
         List<Details> details = new List<Details>();

@@ -9,9 +9,11 @@ namespace DAO
 {
     public class BourseDAO : IBourseDAO
     {
+        public string serverURI {get; set;}
+
         public IEnumerable<Entities.Brands> GetBrands()
         {
-            using (EntityConnection connection = DBConnection.GetEntityConnection())
+            using (EntityConnection connection = DBConnection.GetEntityConnection(this.serverURI))
             {
                 BourseEntities context = new BourseEntities(connection);
 

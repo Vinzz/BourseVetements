@@ -17,12 +17,13 @@ namespace WebApp.Controllers
         public ListController(IBourseDAO dao)
         {
             this.dao = dao;
+            this.dao.serverURI = Properties.Settings.Default.SQLSERVER_URI;
         }
 
         public ActionResult Index()
         {
             // ViewBag.Location = Properties.Resources.menuEditList;
-            ViewBag.Location = "Number of Brands = " + this.dao.GetBrands().Count();
+            ViewBag.Location = new Uri(Properties.Settings.Default.SQLSERVER_URI).Host;
             NewListViewModel model = new NewListViewModel();
 
             return View("List", model);

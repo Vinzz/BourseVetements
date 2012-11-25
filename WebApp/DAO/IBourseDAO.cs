@@ -8,6 +8,8 @@ namespace DAO
 {
     public interface IBourseDAO
     {
+        string serverURI { get; set; }
+
         IEnumerable<Articles> GetArticles();
         IEnumerable<Details> GetDetails();
         IEnumerable<Brands> GetBrands();
