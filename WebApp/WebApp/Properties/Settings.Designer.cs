@@ -22,16 +22,5 @@ namespace WebApp.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mysql://bihgikmvrutdcjjg:RUo6Y2bquycXHBAv7ku3TViNt2s2aMzCeoUTKzNkrc34wNqnuxj5cBC5" +
-            "LHL7GiqP@1c3e8d0c-e6e5-4cf2-9f08-a0c400bca104.mysql.sequelizer.com/db1c3e8d0ce6e" +
-            "54cf29f08a0c400bca104")]
-        public string SQLSERVER_URI {
-            get {
-                return ((string)(this["SQLSERVER_URI"]));
-            }
-        }
     }
 }

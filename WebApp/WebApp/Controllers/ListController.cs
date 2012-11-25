@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DAO;
-using WebApp.Models;
-using Lib.Web.Mvc;
 using DAO.Entities;
-using System.Configuration;
+using Lib.Web.Mvc;
+using WebApp.Models;
 
 namespace WebApp.Controllers
 {
@@ -23,8 +23,7 @@ namespace WebApp.Controllers
 
         public ActionResult Index()
         {
-            // ViewBag.Location = Properties.Resources.menuEditList;
-            ViewBag.Location = new Uri(ConfigurationManager.AppSettings["SQLSERVER_URI"]).Host;
+            ViewBag.Location = Properties.Resources.menuEditList;
             NewListViewModel model = new NewListViewModel();
 
             return View("List", model);
@@ -63,7 +62,7 @@ namespace WebApp.Controllers
                 Name = updatedModel.SelectedArticleId,
                 Details = updatedModel.SelectedDetailColorId,
                 Brand = updatedModel.SelectedBrandId,
-                Price = double.Parse(updatedModel.SelectedPriceId.Replace('.',',')),
+                Price = double.Parse(updatedModel.SelectedPriceId.Replace('.', ',')),
                 Size = updatedModel.SelectedSizeId,
                 isToy = updatedModel.isAToy
             });
@@ -112,6 +111,6 @@ namespace WebApp.Controllers
         {
             var ans = this.dao.GetPrices().Where(x => x.Name.ToUpper().StartsWith(term.ToUpper())).Select(x => x.Name);
             return Json(ans.ToArray(), JsonRequestBehavior.AllowGet);
-        }   
+        }
     }
 }

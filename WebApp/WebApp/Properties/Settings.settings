@@ -1,9 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WebApp.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="SQLSERVER_URI" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">mysql://bihgikmvrutdcjjg:RUo6Y2bquycXHBAv7ku3TViNt2s2aMzCeoUTKzNkrc34wNqnuxj5cBC5LHL7GiqP@1c3e8d0c-e6e5-4cf2-9f08-a0c400bca104.mysql.sequelizer.com/db1c3e8d0ce6e54cf29f08a0c400bca104</Value>
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>
