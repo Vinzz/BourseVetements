@@ -107,6 +107,8 @@ namespace DAO
                     {
                         Name = newArticle
                     });
+
+                context.SaveChanges();
             }
         }
 
@@ -124,6 +126,8 @@ namespace DAO
                 {
                     Name = newDetail
                 });
+
+                context.SaveChanges();
             }
         }
 
@@ -141,6 +145,8 @@ namespace DAO
                 {
                     Name = newBrand
                 });
+
+                context.SaveChanges();
             }
         }
 
@@ -158,6 +164,8 @@ namespace DAO
                 {
                     Name = newSize
                 });
+
+                context.SaveChanges();
             }
         }
 
@@ -175,6 +183,25 @@ namespace DAO
                 {
                     Name = newPrice
                 });
+
+                context.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Saves the list.
+        /// </summary>
+        /// <param name="sell_List">The sell_ list.</param>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public void SaveList(Sell_List sell_List)
+        {
+            using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
+            {
+                BourseEntities context = new BourseEntities(connection);
+
+                context.Sell_ListSet.AddObject(sell_List);
+
+                context.SaveChanges();
             }
         }
     }

@@ -11,9 +11,13 @@ namespace DAO
         string ServerURI { get; set; }
 
         IEnumerable<Articles> GetArticles();
+
         IEnumerable<Details> GetDetails();
+
         IEnumerable<Brands> GetBrands();
+
         IEnumerable<Sizes> GetSizes();
+
         IEnumerable<Prices> GetPrices();
 
         void AddArticle(string newArticle);
@@ -25,5 +29,7 @@ namespace DAO
         void AddSize(string newSize);
 
         void AddPrice(string newPrice);
+
+        void SaveList(Sell_List sell_List);
     }
 }

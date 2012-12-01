@@ -153,4 +153,13 @@
   <data name="Toy" xml:space="preserve">
     <value>Jouet</value>
   </data>
+  <data name="btnAddArticle" xml:space="preserve">
+    <value>Ajouter Article</value>
+  </data>
+  <data name="btnSaveList" xml:space="preserve">
+    <value>Sauver liste</value>
+  </data>
+  <data name="titleEditList" xml:space="preserve">
+    <value>Saisie d'une nouvelle liste de vente</value>
+  </data>
 </root>

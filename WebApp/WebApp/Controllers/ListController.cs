@@ -8,6 +8,7 @@ using DAO;
 using DAO.Entities;
 using Lib.Web.Mvc;
 using WebApp.Models;
+using WebApp.Properties;
 
 namespace WebApp.Controllers
 {
@@ -23,6 +24,7 @@ namespace WebApp.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Title = Properties.Resources.titleEditList;
             ViewBag.Location = Properties.Resources.menuEditList;
             NewListViewModel model = new NewListViewModel();
 
@@ -30,7 +32,40 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddArticle(NewListViewModel updatedModel)
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(NewListViewModel updatedModel, string submitButtonValue)
+        {
+            if (ModelState.IsValid)
+            {
+                if (submitButtonValue == Resources.btnAddArticle)
+                {
+                    return AddArticle(updatedModel);
+                }
+                else
+                {
+                    if (submitButtonValue == Resources.btnSaveList)
+                    {
+                        return SaveList(updatedModel);
+                    }
+                }
+                throw new Exception("Unknown button name");
+            }
+            else
+            {
+                return View("List", updatedModel);
+            }
+        }
+
+        private ActionResult SaveList(NewListViewModel updatedModel)
+        {
+            this.dao.SaveList(updatedModel.ListBO);
+
+            ResetCurrentArticle(updatedModel);
+
+            return View("List", updatedModel);
+        }
+
+        private ActionResult AddArticle(NewListViewModel updatedModel)
         {
             if (this.dao.GetArticles().Where(x => x.Name == updatedModel.SelectedArticleId).Count() == 0)
             {
@@ -39,20 +74,20 @@ namespace WebApp.Controllers
 
             if (this.dao.GetDetails().Where(x => x.Name == updatedModel.SelectedDetailColorId).Count() == 0)
             {
-                this.dao.AddDetail(updatedModel.SelectedArticleId);
+                this.dao.AddDetail(updatedModel.SelectedDetailColorId);
             }
 
             if (this.dao.GetBrands().Where(x => x.Name == updatedModel.SelectedBrandId).Count() == 0)
             {
-                this.dao.AddBrand(updatedModel.SelectedArticleId);
+                this.dao.AddBrand(updatedModel.SelectedBrandId);
             }
 
-            if (this.dao.GetSizes().Where(x => x.Name == updatedModel.SelectedPriceId).Count() == 0)
+            if (this.dao.GetSizes().Where(x => x.Name == updatedModel.SelectedSizeId).Count() == 0)
             {
                 this.dao.AddSize(updatedModel.SelectedSizeId);
             }
 
-            if (this.dao.GetPrices().Where(x => x.Name == updatedModel.SelectedSizeId).Count() == 0)
+            if (this.dao.GetPrices().Where(x => x.Name == updatedModel.SelectedPriceId).Count() == 0)
             {
                 this.dao.AddPrice(updatedModel.SelectedPriceId);
             }
@@ -68,14 +103,19 @@ namespace WebApp.Controllers
             });
 
             // Reset
+            ResetCurrentArticle(updatedModel);
+
+            return View("List", updatedModel);
+        }
+
+        private static void ResetCurrentArticle(NewListViewModel updatedModel)
+        {
             updatedModel.SelectedArticleId = string.Empty;
             updatedModel.SelectedDetailColorId = string.Empty;
             updatedModel.SelectedBrandId = string.Empty;
             updatedModel.SelectedPriceId = string.Empty;
             updatedModel.SelectedSizeId = string.Empty;
             updatedModel.isAToy = false;
-
-            return View("List", updatedModel);
         }
 
         [NoCache]

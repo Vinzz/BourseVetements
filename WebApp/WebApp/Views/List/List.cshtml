@@ -1,11 +1,5 @@
 ﻿@model WebApp.Models.NewListViewModel
-
-@{
-    ViewBag.Title = "List";
-}
-
-<h2>List</h2>
-
+<h2>@ViewBag.Title</h2>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#SelectedArticleId").autocomplete({
@@ -29,80 +23,114 @@
         });
     });
 </script>
-
-@using (Html.BeginForm("AddArticle","List"))
+@using (Html.BeginForm("Save", "List"))
 {
-
     @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
 
-<table border="0">
-<tr>
-<td>@Html.LabelFor(x => x.ListBO.NumberClothes)</td>
-<td>@Html.EditorFor(x => x.ListBO.NumberClothes)</td>
-<td>@Html.LabelFor(x => x.ListBO.NumberToys)</td>
-<td>@Html.EditorFor(x => x.ListBO.NumberToys)</td>
-</tr>
-<tr>
-<td>@Html.LabelFor(x => x.ListBO.Seller.Name)</td>
-<td>@Html.EditorFor(x => x.ListBO.Seller.Name)</td>
-<td>@Html.LabelFor(x => x.ListBO.Seller.City)</td>
-<td>@Html.EditorFor(x => x.ListBO.Seller.City)</td>
-<td>@Html.LabelFor(x => x.ListBO.Seller.Phone)</td>
-<td>@Html.EditorFor(x => x.ListBO.Seller.Phone)</td>
-<td>@Html.LabelFor(x => x.ListBO.Seller.Mail)</td>
-<td>@Html.EditorFor(x => x.ListBO.Seller.Mail)</td>
-</tr>
-</table>
-
-<br/>
-
-<table border="3">
-<tr>
-<td>@Html.LabelFor(x => x.SelectedArticleId)</td>
-<td>@Html.TextBoxFor(x => x.SelectedArticleId)</td>
-
-<td>@Html.LabelFor(x => x.SelectedDetailColorId)</td>
-<td>@Html.TextBoxFor(x => x.SelectedDetailColorId)</td>
-
-<td>@Html.LabelFor(x => x.SelectedBrandId)</td>
-<td>@Html.TextBoxFor(x => x.SelectedBrandId)</td>
-
-<td>@Html.LabelFor(x => x.SelectedSizeId)</td>
-<td>@Html.TextBoxFor(x => x.SelectedSizeId)</td>
-
-<td>@Html.LabelFor(x => x.SelectedPriceId)</td>
-<td>@Html.TextBoxFor(x => x.SelectedPriceId)</td>
-
-<td>@Html.LabelFor(x => x.isAToy)</td>
-<td>@Html.EditorFor(x => x.isAToy)</td>
-</tr>
-<tr><td><input type="submit" value="Ajouter" /></td></tr>
-</table>
-}
-
-  <table>
+    <table border="0">
         <tr>
-            <th>
-                 @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Name)
-            </th>
-            <th>
-                 @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Details)
-            </th>
-            <th>
-                 @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Brand)
-            </th>
-             <th>
-                 @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Size)
-            </th>
-             <th>
-                 @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Price)
-            </th>
-             <th>
-                 @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().isToy)
-            </th>
+            <td>@Html.LabelFor(x => x.ListBO.NumberClothes)
+            </td>
+            <td>@Html.EditorFor(x => x.ListBO.NumberClothes)
+            </td>
+            <td>@Html.LabelFor(x => x.ListBO.NumberToys)
+            </td>
+            <td>@Html.EditorFor(x => x.ListBO.NumberToys)
+            </td>
         </tr>
+    </table>
 
-@foreach (var item in Model.ListBO.Article) {
+    <br />
+
+    <!-- Current seller -->
+    <table border="0">
+        <tr>
+            <td>@Html.LabelFor(x => x.ListBO.Seller.Name)
+            </td>
+            <td>@Html.EditorFor(x => x.ListBO.Seller.Name)
+            </td>
+            <td>@Html.LabelFor(x => x.ListBO.Seller.City)
+            </td>
+            <td>@Html.EditorFor(x => x.ListBO.Seller.City)
+            </td>
+            <td>@Html.LabelFor(x => x.ListBO.Seller.Phone)
+            </td>
+            <td>@Html.EditorFor(x => x.ListBO.Seller.Phone)
+            </td>
+            <td>@Html.LabelFor(x => x.ListBO.Seller.Mail)
+            </td>
+            <td>@Html.EditorFor(x => x.ListBO.Seller.Mail)
+            </td>
+        </tr>
+    </table>
+
+    <br />
+
+    <!-- Current article-->
+    <table border="3" width="100%">
+        <tr>
+            <td>@Html.LabelFor(x => x.SelectedArticleId)
+            </td>
+            <td>@Html.TextBoxFor(x => x.SelectedArticleId)
+            </td>
+            <td>@Html.LabelFor(x => x.SelectedDetailColorId)
+            </td>
+            <td>@Html.TextBoxFor(x => x.SelectedDetailColorId)
+            </td>
+            <td>@Html.LabelFor(x => x.SelectedBrandId)
+            </td>
+            <td>@Html.TextBoxFor(x => x.SelectedBrandId)
+            </td>
+            <td>@Html.LabelFor(x => x.SelectedSizeId)
+            </td>
+            <td>@Html.TextBoxFor(x => x.SelectedSizeId)
+            </td>
+            <td>@Html.LabelFor(x => x.SelectedPriceId)
+            </td>
+            <td>@Html.TextBoxFor(x => x.SelectedPriceId)
+            </td>
+            <td>@Html.LabelFor(x => x.isAToy)
+            </td>
+            <td>@Html.EditorFor(x => x.isAToy)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="submitButtonValue" value="@WebApp.Properties.Resources.btnAddArticle" />
+            </td>
+        </tr>
+    </table>
+
+    <br />
+
+    <!-- save list -->
+    <input type="submit" name="submitButtonValue" value="@WebApp.Properties.Resources.btnSaveList" />
+}
+<br />
+<table>
+    <tr>
+        <th>
+            @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Name)
+        </th>
+        <th>
+            @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Details)
+        </th>
+        <th>
+            @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Brand)
+        </th>
+        <th>
+            @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Size)
+        </th>
+        <th>
+            @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().Price)
+        </th>
+        <th>
+            @Html.LabelFor(model => Model.ListBO.Article.FirstOrDefault().isToy)
+        </th>
+    </tr>
+    @foreach (var item in Model.ListBO.Article)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -110,7 +138,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Details)
             </td>
-             <td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Brand)
             </td>
             <td>
@@ -119,14 +147,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-              <td>
+            <td>
                 @Html.DisplayFor(modelItem => item.isToy)
             </td>
-
             @*<td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { modelId = item.Id })
             </td>*@
         </tr>
     }
-    </table>
+</table>

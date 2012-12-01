@@ -228,5 +228,10 @@ namespace DAO
                 Name = newPrice
             });
         }
+
+        public void SaveList(Sell_List sell_List)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
