@@ -9,11 +9,11 @@
     <EntitySet Name="SellerSet" EntityType="Model1.Store.SellerSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ArticleSet" EntityType="Model1.Store.ArticleSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Sell_ListSet" EntityType="Model1.Store.Sell_ListSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="BrandsSet" EntityType="Model1.Store.BrandsSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ArticlesSet" EntityType="Model1.Store.ArticlesSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DetailsSet" EntityType="Model1.Store.DetailsSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="SizesSet" EntityType="Model1.Store.SizesSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PricesSet" EntityType="Model1.Store.PricesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BrandReferencesSet" EntityType="Model1.Store.BrandReferencesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ArticleReferencesSet" EntityType="Model1.Store.ArticleReferencesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DetailReferencesSet" EntityType="Model1.Store.DetailReferencesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SizeReferencesSet" EntityType="Model1.Store.SizeReferencesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PriceReferencesSet" EntityType="Model1.Store.PriceReferencesSet" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="ArticleList" Association="Model1.Store.ArticleList">
       <End Role="Article" EntitySet="ArticleSet" />
       <End Role="List" EntitySet="Sell_ListSet" />
@@ -57,35 +57,35 @@
     <Property Name="NumberToys" Type="int" Nullable="false" />
     <Property Name="Seller_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="BrandsSet">
+  <EntityType Name="BrandReferencesSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="longtext" Nullable="false" />
   </EntityType>
-  <EntityType Name="ArticlesSet">
+  <EntityType Name="ArticleReferencesSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="longtext" Nullable="false" />
   </EntityType>
-  <EntityType Name="DetailsSet">
+  <EntityType Name="DetailReferencesSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="longtext" Nullable="false" />
   </EntityType>
-  <EntityType Name="SizesSet">
+  <EntityType Name="SizeReferencesSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="longtext" Nullable="false" />
   </EntityType>
-  <EntityType Name="PricesSet">
+  <EntityType Name="PriceReferencesSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -132,11 +132,11 @@
             <End Role="List" EntitySet="Sell_ListSet" />
             <End Role="Seller" EntitySet="SellerSet" />
           </AssociationSet>
-          <EntitySet Name="BrandsSet" EntityType="Model1.Brands" />
-          <EntitySet Name="ArticlesSet" EntityType="Model1.Articles" />
-          <EntitySet Name="DetailsSet" EntityType="Model1.Details" />
-          <EntitySet Name="SizesSet" EntityType="Model1.Sizes" />
-          <EntitySet Name="PricesSet" EntityType="Model1.Prices" />
+          <EntitySet Name="BrandReferencesSet" EntityType="Model1.BrandReferences" />
+          <EntitySet Name="ArticleReferencesSet" EntityType="Model1.ArticleReferences" />
+          <EntitySet Name="DetailReferencesSet" EntityType="Model1.DetailReferences" />
+          <EntitySet Name="SizeReferencesSet" EntityType="Model1.SizeReferences" />
+          <EntitySet Name="PriceReferencesSet" EntityType="Model1.PriceReferences" />
         </EntityContainer>
         <EntityType Name="Seller">
           <Key>
@@ -182,35 +182,35 @@
           <End Type="Model1.Sell_List" Role="List" Multiplicity="*" />
           <End Type="Model1.Seller" Role="Seller" Multiplicity="1" />
         </Association>
-        <EntityType Name="Brands">
+        <EntityType Name="BrandReferences">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" />
         </EntityType>
-        <EntityType Name="Articles">
+        <EntityType Name="ArticleReferences">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" />
         </EntityType>
-        <EntityType Name="Details">
+        <EntityType Name="DetailReferences">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" />
         </EntityType>
-        <EntityType Name="Sizes">
+        <EntityType Name="SizeReferences">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" />
         </EntityType>
-        <EntityType Name="Prices">
+        <EntityType Name="PriceReferences">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -258,41 +258,41 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="BrandsSet">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Brands)">
-        <MappingFragment StoreEntitySet="BrandsSet">
+    <EntitySetMapping Name="BrandReferencesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.BrandReferences)">
+        <MappingFragment StoreEntitySet="BrandReferencesSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ArticlesSet">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Articles)">
-        <MappingFragment StoreEntitySet="ArticlesSet">
+    <EntitySetMapping Name="ArticleReferencesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.ArticleReferences)">
+        <MappingFragment StoreEntitySet="ArticleReferencesSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DetailsSet">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Details)">
-        <MappingFragment StoreEntitySet="DetailsSet">
+    <EntitySetMapping Name="DetailReferencesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.DetailReferences)">
+        <MappingFragment StoreEntitySet="DetailReferencesSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SizesSet">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Sizes)">
-        <MappingFragment StoreEntitySet="SizesSet">
+    <EntitySetMapping Name="SizeReferencesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.SizeReferences)">
+        <MappingFragment StoreEntitySet="SizeReferencesSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PricesSet">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Prices)">
-        <MappingFragment StoreEntitySet="PricesSet">
+    <EntitySetMapping Name="PriceReferencesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.PriceReferences)">
+        <MappingFragment StoreEntitySet="PriceReferencesSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
@@ -347,11 +347,11 @@
           <ConnectorPoint PointX="5.375" PointY="1.89800048828125" />
           <ConnectorPoint PointX="2" PointY="1.89800048828125" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model1.Brands" Width="1.5" PointX="8.125" PointY="1.25" Height="1.2636116536458335" />
-        <EntityTypeShape EntityType="Model1.Articles" Width="1.5" PointX="9.875" PointY="1.25" Height="1.2636116536458317" />
-        <EntityTypeShape EntityType="Model1.Details" Width="1.5" PointX="8.125" PointY="2.75" Height="1.2636116536458322" />
-        <EntityTypeShape EntityType="Model1.Sizes" Width="1.5" PointX="9.875" PointY="2.75" Height="1.2636116536458317" />
-        <EntityTypeShape EntityType="Model1.Prices" Width="1.5" PointX="8.125" PointY="4.25" Height="1.2636116536458317" />
+        <EntityTypeShape EntityType="Model1.BrandReferences" Width="1.5" PointX="8.125" PointY="1.25" Height="1.2636116536458335" />
+        <EntityTypeShape EntityType="Model1.ArticleReferences" Width="1.5" PointX="9.875" PointY="1.25" Height="1.2636116536458317" />
+        <EntityTypeShape EntityType="Model1.DetailReferences" Width="1.5" PointX="8.125" PointY="2.75" Height="1.2636116536458322" />
+        <EntityTypeShape EntityType="Model1.SizeReferences" Width="1.5" PointX="9.875" PointY="2.75" Height="1.2636116536458317" />
+        <EntityTypeShape EntityType="Model1.PriceReferences" Width="1.5" PointX="8.125" PointY="4.25" Height="1.2636116536458317" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

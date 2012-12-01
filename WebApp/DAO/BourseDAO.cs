@@ -24,16 +24,16 @@ namespace DAO
         public string ServerURI { get; set; }
 
         /// <summary>
-        /// Gets the brands.
+        /// Gets the BrandReferences.
         /// </summary>
-        /// <returns>the brands</returns>
-        public IEnumerable<Entities.Brands> GetBrands()
+        /// <returns>the BrandReferences</returns>
+        public IEnumerable<Entities.BrandReferences> GetBrandReferences()
         {
             using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
             {
                 BourseEntities context = new BourseEntities(connection);
 
-                return context.BrandsSet.ToList();
+                return context.BrandReferencesSet.ToList();
             }
         }
 
@@ -41,13 +41,13 @@ namespace DAO
         /// Gets the articles.
         /// </summary>
         /// <returns>the articles</returns>
-        public IEnumerable<Articles> GetArticles()
+        public IEnumerable<ArticleReferences> GetArticles()
         {
             using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
             {
                 BourseEntities context = new BourseEntities(connection);
 
-                return context.ArticlesSet.ToList();
+                return context.ArticleReferencesSet.ToList();
             }
         }
 
@@ -55,13 +55,13 @@ namespace DAO
         /// Gets the details.
         /// </summary>
         /// <returns>the details</returns>
-        public IEnumerable<Details> GetDetails()
+        public IEnumerable<DetailReferences> GetDetails()
         {
             using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
             {
                 BourseEntities context = new BourseEntities(connection);
 
-                return context.DetailsSet.ToList();
+                return context.DetailReferencesSet.ToList();
             }
         }
 
@@ -69,13 +69,13 @@ namespace DAO
         /// Gets the sizes.
         /// </summary>
         /// <returns>the sizes</returns>
-        public IEnumerable<Sizes> GetSizes()
+        public IEnumerable<SizeReferences> GetSizes()
         {
             using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
             {
                 BourseEntities context = new BourseEntities(connection);
 
-                return context.SizesSet.ToList();
+                return context.SizeReferencesSet.ToList();
             }
         }
 
@@ -83,13 +83,13 @@ namespace DAO
         /// Gets the prices.
         /// </summary>
         /// <returns>the prices</returns>
-        public IEnumerable<Prices> GetPrices()
+        public IEnumerable<PriceReferences> GetPrices()
         {
             using (EntityConnection connection = DBConnection.GetEntityConnection(this.ServerURI))
             {
                 BourseEntities context = new BourseEntities(connection);
 
-                return context.PricesSet.ToList();
+                return context.PriceReferencesSet.ToList();
             }
         }
 
@@ -103,7 +103,7 @@ namespace DAO
             {
                 BourseEntities context = new BourseEntities(connection);
 
-                context.ArticlesSet.AddObject(new Articles()
+                context.ArticleReferencesSet.AddObject(new ArticleReferences()
                     {
                         Name = newArticle
                     });
@@ -122,7 +122,7 @@ namespace DAO
             {
                 BourseEntities context = new BourseEntities(connection);
 
-                context.DetailsSet.AddObject(new Details()
+                context.DetailReferencesSet.AddObject(new DetailReferences()
                 {
                     Name = newDetail
                 });
@@ -141,7 +141,7 @@ namespace DAO
             {
                 BourseEntities context = new BourseEntities(connection);
 
-                context.BrandsSet.AddObject(new Brands()
+                context.BrandReferencesSet.AddObject(new BrandReferences()
                 {
                     Name = newBrand
                 });
@@ -160,7 +160,7 @@ namespace DAO
             {
                 BourseEntities context = new BourseEntities(connection);
 
-                context.SizesSet.AddObject(new Sizes()
+                context.SizeReferencesSet.AddObject(new SizeReferences()
                 {
                     Name = newSize
                 });
@@ -179,7 +179,7 @@ namespace DAO
             {
                 BourseEntities context = new BourseEntities(connection);
 
-                context.PricesSet.AddObject(new Prices()
+                context.PriceReferencesSet.AddObject(new PriceReferences()
                 {
                     Name = newPrice
                 });

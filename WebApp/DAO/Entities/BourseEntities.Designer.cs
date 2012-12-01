@@ -122,82 +122,82 @@ namespace DAO.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Brands> BrandsSet
+        public ObjectSet<BrandReferences> BrandReferencesSet
         {
             get
             {
-                if ((_BrandsSet == null))
+                if ((_BrandReferencesSet == null))
                 {
-                    _BrandsSet = base.CreateObjectSet<Brands>("BrandsSet");
+                    _BrandReferencesSet = base.CreateObjectSet<BrandReferences>("BrandReferencesSet");
                 }
-                return _BrandsSet;
+                return _BrandReferencesSet;
             }
         }
-        private ObjectSet<Brands> _BrandsSet;
+        private ObjectSet<BrandReferences> _BrandReferencesSet;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Articles> ArticlesSet
+        public ObjectSet<ArticleReferences> ArticleReferencesSet
         {
             get
             {
-                if ((_ArticlesSet == null))
+                if ((_ArticleReferencesSet == null))
                 {
-                    _ArticlesSet = base.CreateObjectSet<Articles>("ArticlesSet");
+                    _ArticleReferencesSet = base.CreateObjectSet<ArticleReferences>("ArticleReferencesSet");
                 }
-                return _ArticlesSet;
+                return _ArticleReferencesSet;
             }
         }
-        private ObjectSet<Articles> _ArticlesSet;
+        private ObjectSet<ArticleReferences> _ArticleReferencesSet;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Details> DetailsSet
+        public ObjectSet<DetailReferences> DetailReferencesSet
         {
             get
             {
-                if ((_DetailsSet == null))
+                if ((_DetailReferencesSet == null))
                 {
-                    _DetailsSet = base.CreateObjectSet<Details>("DetailsSet");
+                    _DetailReferencesSet = base.CreateObjectSet<DetailReferences>("DetailReferencesSet");
                 }
-                return _DetailsSet;
+                return _DetailReferencesSet;
             }
         }
-        private ObjectSet<Details> _DetailsSet;
+        private ObjectSet<DetailReferences> _DetailReferencesSet;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Sizes> SizesSet
+        public ObjectSet<SizeReferences> SizeReferencesSet
         {
             get
             {
-                if ((_SizesSet == null))
+                if ((_SizeReferencesSet == null))
                 {
-                    _SizesSet = base.CreateObjectSet<Sizes>("SizesSet");
+                    _SizeReferencesSet = base.CreateObjectSet<SizeReferences>("SizeReferencesSet");
                 }
-                return _SizesSet;
+                return _SizeReferencesSet;
             }
         }
-        private ObjectSet<Sizes> _SizesSet;
+        private ObjectSet<SizeReferences> _SizeReferencesSet;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Prices> PricesSet
+        public ObjectSet<PriceReferences> PriceReferencesSet
         {
             get
             {
-                if ((_PricesSet == null))
+                if ((_PriceReferencesSet == null))
                 {
-                    _PricesSet = base.CreateObjectSet<Prices>("PricesSet");
+                    _PriceReferencesSet = base.CreateObjectSet<PriceReferences>("PriceReferencesSet");
                 }
-                return _PricesSet;
+                return _PriceReferencesSet;
             }
         }
-        private ObjectSet<Prices> _PricesSet;
+        private ObjectSet<PriceReferences> _PriceReferencesSet;
 
         #endregion
         #region AddTo Methods
@@ -227,43 +227,43 @@ namespace DAO.Entities
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the BrandsSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the BrandReferencesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToBrandsSet(Brands brands)
+        public void AddToBrandReferencesSet(BrandReferences brandReferences)
         {
-            base.AddObject("BrandsSet", brands);
+            base.AddObject("BrandReferencesSet", brandReferences);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the ArticlesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the ArticleReferencesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToArticlesSet(Articles articles)
+        public void AddToArticleReferencesSet(ArticleReferences articleReferences)
         {
-            base.AddObject("ArticlesSet", articles);
+            base.AddObject("ArticleReferencesSet", articleReferences);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the DetailsSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the DetailReferencesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToDetailsSet(Details details)
+        public void AddToDetailReferencesSet(DetailReferences detailReferences)
         {
-            base.AddObject("DetailsSet", details);
+            base.AddObject("DetailReferencesSet", detailReferences);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the SizesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the SizeReferencesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToSizesSet(Sizes sizes)
+        public void AddToSizeReferencesSet(SizeReferences sizeReferences)
         {
-            base.AddObject("SizesSet", sizes);
+            base.AddObject("SizeReferencesSet", sizeReferences);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the PricesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PriceReferencesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPricesSet(Prices prices)
+        public void AddToPriceReferencesSet(PriceReferences priceReferences)
         {
-            base.AddObject("PricesSet", prices);
+            base.AddObject("PriceReferencesSet", priceReferences);
         }
 
         #endregion
@@ -523,24 +523,24 @@ namespace DAO.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Articles")]
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="ArticleReferences")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Articles : EntityObject
+    public partial class ArticleReferences : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Articles object.
+        /// Create a new ArticleReferences object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        public static Articles CreateArticles(global::System.Int32 id, global::System.String name)
+        public static ArticleReferences CreateArticleReferences(global::System.Int32 id, global::System.String name)
         {
-            Articles articles = new Articles();
-            articles.Id = id;
-            articles.Name = name;
-            return articles;
+            ArticleReferences articleReferences = new ArticleReferences();
+            articleReferences.Id = id;
+            articleReferences.Name = name;
+            return articleReferences;
         }
 
         #endregion
@@ -604,24 +604,24 @@ namespace DAO.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Brands")]
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="BrandReferences")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Brands : EntityObject
+    public partial class BrandReferences : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Brands object.
+        /// Create a new BrandReferences object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        public static Brands CreateBrands(global::System.Int32 id, global::System.String name)
+        public static BrandReferences CreateBrandReferences(global::System.Int32 id, global::System.String name)
         {
-            Brands brands = new Brands();
-            brands.Id = id;
-            brands.Name = name;
-            return brands;
+            BrandReferences brandReferences = new BrandReferences();
+            brandReferences.Id = id;
+            brandReferences.Name = name;
+            return brandReferences;
         }
 
         #endregion
@@ -685,24 +685,24 @@ namespace DAO.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Details")]
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="DetailReferences")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Details : EntityObject
+    public partial class DetailReferences : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Details object.
+        /// Create a new DetailReferences object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        public static Details CreateDetails(global::System.Int32 id, global::System.String name)
+        public static DetailReferences CreateDetailReferences(global::System.Int32 id, global::System.String name)
         {
-            Details details = new Details();
-            details.Id = id;
-            details.Name = name;
-            return details;
+            DetailReferences detailReferences = new DetailReferences();
+            detailReferences.Id = id;
+            detailReferences.Name = name;
+            return detailReferences;
         }
 
         #endregion
@@ -766,24 +766,24 @@ namespace DAO.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Prices")]
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="PriceReferences")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Prices : EntityObject
+    public partial class PriceReferences : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Prices object.
+        /// Create a new PriceReferences object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        public static Prices CreatePrices(global::System.Int32 id, global::System.String name)
+        public static PriceReferences CreatePriceReferences(global::System.Int32 id, global::System.String name)
         {
-            Prices prices = new Prices();
-            prices.Id = id;
-            prices.Name = name;
-            return prices;
+            PriceReferences priceReferences = new PriceReferences();
+            priceReferences.Id = id;
+            priceReferences.Name = name;
+            return priceReferences;
         }
 
         #endregion
@@ -1247,24 +1247,24 @@ namespace DAO.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Sizes")]
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="SizeReferences")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Sizes : EntityObject
+    public partial class SizeReferences : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Sizes object.
+        /// Create a new SizeReferences object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        public static Sizes CreateSizes(global::System.Int32 id, global::System.String name)
+        public static SizeReferences CreateSizeReferences(global::System.Int32 id, global::System.String name)
         {
-            Sizes sizes = new Sizes();
-            sizes.Id = id;
-            sizes.Name = name;
-            return sizes;
+            SizeReferences sizeReferences = new SizeReferences();
+            sizeReferences.Id = id;
+            sizeReferences.Name = name;
+            return sizeReferences;
         }
 
         #endregion

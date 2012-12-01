@@ -11,7 +11,7 @@
         });
 
         $("#SelectedBrandId").autocomplete({
-            source: '@Url.Action("AutocompleteBrands")'
+            source: '@Url.Action("AutocompleteBrandReferences")'
         });
 
         $("#SelectedSizeId").autocomplete({
@@ -28,6 +28,8 @@
     @Html.ValidationSummary(true)
     @Html.AntiForgeryToken()
 
+    @Html.HiddenFor(x => x.ListBO.Id);
+    
     <table border="0">
         <tr>
             <td>@Html.LabelFor(x => x.ListBO.NumberClothes)

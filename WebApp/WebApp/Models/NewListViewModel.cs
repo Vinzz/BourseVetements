@@ -22,24 +22,24 @@ namespace WebApp.Models
         [Display(Name = "Article", ResourceType = typeof(Resources))]
         [Required]
         public string SelectedArticleId { get; set; }
-        public IEnumerable<Articles> Articles { get; set; }
+        public IEnumerable<ArticleReferences> Articles { get; set; }
 
         [Display(Name = "Details", ResourceType = typeof(Resources))]
         public string SelectedDetailColorId { get; set; }
-        public IEnumerable<Details> DetailColor { get; set; }
+        public IEnumerable<DetailReferences> DetailColor { get; set; }
 
         [Display(Name = "Brand", ResourceType = typeof(Resources))]
         public string SelectedBrandId { get; set; }
-        public IEnumerable<Brands> Brands { get; set; }
+        public IEnumerable<BrandReferences> BrandReferences { get; set; }
 
         [Display(Name = "Size", ResourceType = typeof(Resources))]
         public string SelectedSizeId { get; set; }
-        public IEnumerable<Sizes> Sizes { get; set; }
+        public IEnumerable<SizeReferences> Sizes { get; set; }
 
         [Display(Name = "Price", ResourceType = typeof(Resources))]
         [Required]
         public string SelectedPriceId { get; set; }
-        public IEnumerable<Prices> Prices { get; set; }
+        public IEnumerable<PriceReferences> Prices { get; set; }
 
         [Display(Name = "Toy", ResourceType = typeof(Resources))]
         public bool isAToy { get; set; }

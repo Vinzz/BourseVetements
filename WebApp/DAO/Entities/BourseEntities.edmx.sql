@@ -5,11 +5,14 @@
 -- -----------------------------------------------------------
 -- Entity Designer DDL Script for MySQL Server 4.1 and higher
 -- -----------------------------------------------------------
--- Date Created: 11/21/2012 23:22:30
+-- Date Created: 12/01/2012 23:19:48
 -- Generated from EDMX file: C:\Documents and Settings\Fanny\Mes documents\GitHub\BourseVetements\WebApp\DAO\Entities\BourseEntities.edmx
 -- Target version: 2.0.0.0
 -- --------------------------------------------------
 
+DROP DATABASE IF EXISTS `bourseentities`;
+CREATE DATABASE `bourseentities`;
+USE `bourseentities`;
 
 -- --------------------------------------------------
 -- Dropping existing FOREIGN KEY constraints
@@ -71,37 +74,37 @@ CREATE TABLE `Sell_ListSet` (
     `Seller_Id` int  NOT NULL
 );
 
--- Creating table 'BrandsSet'
+-- Creating table 'BrandReferencesSet'
 
-CREATE TABLE `BrandsSet` (
+CREATE TABLE `BrandReferencesSet` (
     `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `Name` longtext  NOT NULL
 );
 
--- Creating table 'ArticlesSet'
+-- Creating table 'ArticleReferencesSet'
 
-CREATE TABLE `ArticlesSet` (
+CREATE TABLE `ArticleReferencesSet` (
     `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `Name` longtext  NOT NULL
 );
 
--- Creating table 'DetailsSet'
+-- Creating table 'DetailReferencesSet'
 
-CREATE TABLE `DetailsSet` (
+CREATE TABLE `DetailReferencesSet` (
     `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `Name` longtext  NOT NULL
 );
 
--- Creating table 'SizesSet'
+-- Creating table 'SizeReferencesSet'
 
-CREATE TABLE `SizesSet` (
+CREATE TABLE `SizeReferencesSet` (
     `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `Name` longtext  NOT NULL
 );
 
--- Creating table 'PricesSet'
+-- Creating table 'PriceReferencesSet'
 
-CREATE TABLE `PricesSet` (
+CREATE TABLE `PriceReferencesSet` (
     `Id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `Name` longtext  NOT NULL
 );

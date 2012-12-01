@@ -10,15 +10,15 @@ namespace DAO
     {
         string ServerURI { get; set; }
 
-        IEnumerable<Articles> GetArticles();
+        IEnumerable<ArticleReferences> GetArticles();
 
-        IEnumerable<Details> GetDetails();
+        IEnumerable<DetailReferences> GetDetails();
 
-        IEnumerable<Brands> GetBrands();
+        IEnumerable<BrandReferences> GetBrandReferences();
 
-        IEnumerable<Sizes> GetSizes();
+        IEnumerable<SizeReferences> GetSizes();
 
-        IEnumerable<Prices> GetPrices();
+        IEnumerable<PriceReferences> GetPrices();
 
         void AddArticle(string newArticle);
 

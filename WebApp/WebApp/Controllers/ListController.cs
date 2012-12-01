@@ -60,34 +60,34 @@ namespace WebApp.Controllers
         {
             this.dao.SaveList(updatedModel.ListBO);
 
-            ResetCurrentArticle(updatedModel);
+            ResetCurrentArticle(ref updatedModel);
 
             return View("List", updatedModel);
         }
 
         private ActionResult AddArticle(NewListViewModel updatedModel)
         {
-            if (this.dao.GetArticles().Where(x => x.Name == updatedModel.SelectedArticleId).Count() == 0)
+            if (!string.IsNullOrEmpty(updatedModel.SelectedArticleId) && this.dao.GetArticles().Where(x => x.Name == updatedModel.SelectedArticleId).Count() == 0)
             {
                 this.dao.AddArticle(updatedModel.SelectedArticleId);
             }
 
-            if (this.dao.GetDetails().Where(x => x.Name == updatedModel.SelectedDetailColorId).Count() == 0)
+            if (!string.IsNullOrEmpty(updatedModel.SelectedDetailColorId) && this.dao.GetDetails().Where(x => x.Name == updatedModel.SelectedDetailColorId).Count() == 0)
             {
                 this.dao.AddDetail(updatedModel.SelectedDetailColorId);
             }
 
-            if (this.dao.GetBrands().Where(x => x.Name == updatedModel.SelectedBrandId).Count() == 0)
+            if (!string.IsNullOrEmpty(updatedModel.SelectedBrandId) && this.dao.GetBrandReferences().Where(x => x.Name == updatedModel.SelectedBrandId).Count() == 0)
             {
                 this.dao.AddBrand(updatedModel.SelectedBrandId);
             }
 
-            if (this.dao.GetSizes().Where(x => x.Name == updatedModel.SelectedSizeId).Count() == 0)
+            if (!string.IsNullOrEmpty(updatedModel.SelectedSizeId) && this.dao.GetSizes().Where(x => x.Name == updatedModel.SelectedSizeId).Count() == 0)
             {
                 this.dao.AddSize(updatedModel.SelectedSizeId);
             }
 
-            if (this.dao.GetPrices().Where(x => x.Name == updatedModel.SelectedPriceId).Count() == 0)
+            if (!string.IsNullOrEmpty(updatedModel.SelectedPriceId) && this.dao.GetPrices().Where(x => x.Name == updatedModel.SelectedPriceId).Count() == 0)
             {
                 this.dao.AddPrice(updatedModel.SelectedPriceId);
             }
@@ -103,12 +103,12 @@ namespace WebApp.Controllers
             });
 
             // Reset
-            ResetCurrentArticle(updatedModel);
+            ResetCurrentArticle(ref updatedModel);
 
             return View("List", updatedModel);
         }
 
-        private static void ResetCurrentArticle(NewListViewModel updatedModel)
+        private static void ResetCurrentArticle(ref NewListViewModel updatedModel)
         {
             updatedModel.SelectedArticleId = string.Empty;
             updatedModel.SelectedDetailColorId = string.Empty;
@@ -133,9 +133,9 @@ namespace WebApp.Controllers
         }
 
         [NoCache]
-        public ActionResult AutocompleteBrands(string term)
+        public ActionResult AutocompleteBrandReferences(string term)
         {
-            var ans = this.dao.GetBrands().Where(x => x.Name.ToUpper().StartsWith(term.ToUpper())).Select(x => x.Name);
+            var ans = this.dao.GetBrandReferences().Where(x => x.Name.ToUpper().StartsWith(term.ToUpper())).Select(x => x.Name);
             return Json(ans.ToArray(), JsonRequestBehavior.AllowGet);
         }
 
