@@ -102,6 +102,9 @@ namespace WebApp.Controllers
                 isToy = updatedModel.isAToy
             });
 
+            // Save the current list
+            this.dao.SaveList(updatedModel.ListBO);
+
             // Reset
             ResetCurrentArticle(ref updatedModel);
 

@@ -110,6 +110,7 @@
     <input type="submit" name="submitButtonValue" value="@WebApp.Properties.Resources.btnSaveList" />
 }
 <br />
+@Html.HiddenFor(model => Model.ListBO.Id)
 <table>
     <tr>
         <th>
@@ -152,10 +153,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.isToy)
             </td>
-            @*<td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            <td>
                 @Html.ActionLink("Delete", "Delete", new { modelId = item.Id })
-            </td>*@
+            </td>
         </tr>
     }
 </table>

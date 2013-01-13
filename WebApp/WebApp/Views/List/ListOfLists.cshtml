@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DAO.Entities.Sell_List>
+@{
+    ViewBag.Title = "ListOfLists";
+}
+<h2>
+    ListOfLists</h2>
+<table>
+    <tr>
+        <th>
+            @Html.LabelFor(model => Model.FirstOrDefault().Name)
+        </th>
+        <th>
+            @Html.LabelFor(model => Model.FirstOrDefault().Details)
+        </th>
+        <th>
+            @Html.LabelFor(model => Model.FirstOrDefault().Brand)
+        </th>
+        <th>
+            @Html.LabelFor(model => Model.FirstOrDefault().Size)
+        </th>
+        <th>
+            @Html.LabelFor(model => Model.FirstOrDefault().Price)
+        </th>
+        <th>
+            @Html.LabelFor(model => Model.FirstOrDefault().isToy)
+        </th>
+    </tr>
+    @foreach (var item in Model.ListBO.Article)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isToy)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { modelId = item.Id })
+            </td>
+        </tr>
+    }
+</table>

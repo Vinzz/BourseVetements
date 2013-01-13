@@ -193,6 +193,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Views\List\List.cshtml" />
+    <Content Include="Views\List\ListOfLists.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\BourseDAO.csproj">
