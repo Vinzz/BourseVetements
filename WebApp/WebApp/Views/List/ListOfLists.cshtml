@@ -7,47 +7,57 @@
 <table>
     <tr>
         <th>
-            @Html.LabelFor(model => Model.FirstOrDefault().Name)
+            Missing Date
         </th>
         <th>
-            @Html.LabelFor(model => Model.FirstOrDefault().Details)
+            Missing Creator
         </th>
         <th>
-            @Html.LabelFor(model => Model.FirstOrDefault().Brand)
+            @Html.LabelFor(model => Model.FirstOrDefault().Id)
         </th>
         <th>
-            @Html.LabelFor(model => Model.FirstOrDefault().Size)
+            @Html.LabelFor(model => Model.FirstOrDefault().Seller.Name)
         </th>
         <th>
-            @Html.LabelFor(model => Model.FirstOrDefault().Price)
+            @Html.LabelFor(model => Model.FirstOrDefault().Seller.City)
         </th>
         <th>
-            @Html.LabelFor(model => Model.FirstOrDefault().isToy)
+            @Html.LabelFor(model => Model.FirstOrDefault().NumberClothes)
+        </th>
+        <th>
+            @Html.LabelFor(model => Model.FirstOrDefault().NumberToys)
+        </th>
+        <th>
+            Action
         </th>
     </tr>
-    @foreach (var item in Model.ListBO.Article)
+    @foreach (var list in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                ??
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Details)
+                ??
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Brand)
+                @Html.DisplayFor(modelItem => list.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Size)
+                @Html.DisplayFor(modelItem => list.Seller.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                @Html.DisplayFor(modelItem => list.Seller.City)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.isToy)
+                @Html.DisplayFor(modelItem => list.NumberClothes)
             </td>
             <td>
-                @Html.ActionLink("Delete", "Delete", new { modelId = item.Id })
+                @Html.DisplayFor(modelItem => list.NumberToys)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { modelId = list.Id })
+                @Html.ActionLink("Delete", "Delete", new { modelId = list.Id })
             </td>
         </tr>
     }
